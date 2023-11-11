@@ -10,6 +10,11 @@ import ProductsIcon from '~/assets/icons/sidebar/products.svg'
 import ContractIcon from '~/assets/icons/contract.svg'
 import ShoppingIcon from '~/assets/icons/shopping-cart.svg'
 import AcceptBasket from '~/assets/icons/sidebar/accept-basket.svg'
+import Balance from '~/assets/icons/balance.svg'
+import Withdraw from '~/assets/icons/sidebar/withdraw.svg'
+import Blocked from '~/assets/icons/sidebar/blocked.svg'
+import ErrorTransaction from '~/assets/icons/sidebar/error-transaction.svg'
+import Expenses from '~/assets/icons/sidebar/expenses.svg'
 import { useAccess } from '~/composables/useAccess'
 import { PERMISSIONS } from '~/utils/constants'
 const { t } = useI18n({ useScope: 'local' })
@@ -26,7 +31,7 @@ const navigations: {
 }[] = [
   {
     title: t('balance'),
-    icon: AcceptBasket,
+    icon: Balance,
     access: true,
     to: { name: 'balance' },
   },
@@ -38,25 +43,25 @@ const navigations: {
   },
   {
     title: t('withdraw'),
-    icon: AcceptBasket,
+    icon: Withdraw,
     access: true,
     to: { name: 'withdraw' },
   },
   {
     title: t('blockedDeposit'),
-    icon: AcceptBasket,
+    icon: Blocked,
     access: true,
     to: { name: 'blockedDeposit' },
   },
   {
     title: t('erroneousTransactions'),
-    icon: AcceptBasket,
+    icon: ErrorTransaction,
     access: true,
     to: { name: 'erroneousTransactions' },
   },
    {
     title: t('expenses'),
-    icon: AcceptBasket,
+    icon: Expenses,
     access: true,
     to: { name: 'expenses' },
   },
