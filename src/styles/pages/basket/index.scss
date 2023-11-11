@@ -1,0 +1,52 @@
+.filter_btn {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #DFE2E9;
+  padding: 10px;
+  color: #0096B2;
+
+  svg {
+    display: inline-block;
+    margin-right: 9px;
+    fill: #0096B2;
+  }
+}
+
+.user-create-btn {
+  display: flex;
+  align-items: center;
+
+  svg {
+    display: inline-block;
+    margin-right: 9px;
+  }
+}
+
+.user-search-input {
+
+  input {
+    height: 30px !important;
+  }
+
+  &__icon {
+    @apply text-primary;
+  }
+}
+
+.title_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    height: 40px;
+    font-weight: 500;
+    color: #ED5151;
+    padding: 0 16px;
+    box-shadow: 0px 2px 2px rgba(122, 136, 155, 0.16);
+    border-radius: 6px;
+    background: #FFFFFF;
+    border: 1px solid #ED5151;
+  }
+}

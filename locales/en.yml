@@ -1,0 +1,345 @@
+RKP: RKP
+erroneousTransactions: Erroneous transactions
+withdraw: Withdraw
+blockedDeposit: Blocked (deposit)
+access: Access
+rolesAndAccess: Roles and access to modules
+increase: In ascending order of price
+decrease: In descending order of price
+moderation: Moderation
+lists: Lists
+seller: Seller
+success: Success
+successDeleted: Successfully Deleted
+products: Products
+addProduct: Add product
+noData: No data
+published: Published
+unpublished: Unpublished
+edit: Edit
+delete: Delete
+confirmDelete: Do you really want to delete?
+yes: Yes
+no: No
+basicData: Basic data
+characteristicProduct: Product characteristics
+priceAvailability: Price and availability
+other: Other
+cancel: Cancel
+save: Save
+productName: The product's name
+editProduct: Edit product
+vendorCode: Vendor code
+codeTnVed: TN VED code
+tnVed: TN VED
+productsAccordingToTnVed: Product according to TN VED
+ifNotTnCode: If there is no TN VED in the list, you can
+addHere: Add here
+categories: Categories
+addCategory: Add categories
+editCategory: Edit categories
+brands: Brands
+goodExpirationDate: Goods expiration date
+timingType: Timing type
+group: Group
+productColor: Product color
+salesType: Sale type
+priceType: Type price
+priceAndProductAvailability: Price and product availability
+price: Price
+unit: Unit
+stock: In stock
+minimumOrder: Minimum order
+maximumOrder: Max order
+discount: Discount
+product_condition: Product condition
+shippingInformation: Shipping Information
+deliveryTime: Delivery time
+deliveryType: Delivery type
+photoProduct: Product photos
+select: Choose
+photoSizeNotLessThen: Photo size not less than
+mb: mb
+format: Format
+addService: Add service
+profile: Profile
+requisites: Requisites
+addBankRequisites: Add bank details
+editBankRequisites: Edit bank details
+name: Name
+organization: Organization type
+director: Director
+type: Type
+customer: Customer
+direction: Direction
+other$: Others
+address: Address
+oked: OKED
+emptyBox: Empty box
+tin: TIN
+checkingAccount: Checking account
+mfi: MFI
+mfo: MFO
+banks: Banks
+requiredFields: Fields is required
+webSiteOrganization: Organization website
+email: Email
+countEmployee: The number of employees
+phone: Phone
+editPassword: Change password
+password: Password
+bankName: Bank's name
+status: Status
+actions: Actions
+bankDetail: Bank details
+main: Basic
+secondary: Secondary
+accountNumber: Account number
+setAsPrimary: Set as primary
+add: Add
+companyTypes:
+  private: Private
+  budget: Budget
+  corporate: Corporate
+  foreign: Foreign
+
+companyName: Company Name
+companyType: Company type
+employeeCount: Number of employees
+webSite: Web site
+elEmail: Email mail
+numberPhone: Phone number
+logo: Logo
+download: Download
+certificates: Certificates
+sumPcs: sum/pcs
+sum: sum
+pc: pc
+photo: photo
+fullName: Full name
+position: Job title
+role: role
+users: Users
+addUsers: Add employee
+editUsers: Change employee
+passportData: Passport data
+personalData: Personal data
+firstName: Name
+lastName: Last Name
+surname: Surname
+dateOfReceiving: Date of receiving
+pickupAddress: Pickup address
+photoLong: Photo long
+close: Close
+back: Back
+next: Further
+#  contract
+decorated: Decorated
+prisoners: Prisoners
+forExecution: For execution
+fullFilled: Fulfilled
+terminated: Terminated
+invoice: Invoice
+electronicInvoice: Electronic invoice
+contracts: Contracts
+filter: Filter
+exportToExel: Export to XLS
+search: Search
+standardTemplates: Standard templates
+nameTemplate: Templates
+creator: Creator
+createdDate: Date of creation
+updatedDate: Date of change
+basket: Basket
+blockCustomer: Block customer
+#  basket
+youHaveTry: You have {count} try
+youHaveNoTry: You don't have a try
+commercialOffers: Commercial offers
+downloadPdf: Download in PDF
+color: Color
+size: Size
+count: Quantity
+suggestedPrice: Suggested price
+mountainBike: Mountain bike
+multi: Multi
+individually: Individually
+offeredPriceByTheSupplier: Offered price by the supplier
+offeredPriceByYou: Offered price by you
+comment: A comment
+offerDifferentAmount: Dear customer, we are not satisfied with your offer. I will offer you a reasonable price
+offerPrice: Offer price
+primary: Primary
+proposed: Proposed
+supplierAgreesWithOfferedPrice: The supplier agrees with the offered price
+canceledOrder: Cancel the order
+submitForApproval: Summit for approval
+selectedProduct: Selected products
+mySuggestions: My Suggestions
+supplierOffers: Supplier offers
+denied: Denied
+all: All
+#  balance
+balance: Balance
+remainBalance: Balance
+blockedBalance: Blocked
+expenses: Expenses
+transactions: Transactions
+operations: Operations
+throughKlering: Through klering
+agree: Agree
+operationTypes:
+  TYPE_PAYMENT: Payment
+  TYPE_PLEDGE_BLOCK: Pledge block
+  TYPE_PLEDGE_UNBLOCK: Unblock pledge
+  TYPE_DEPOSIT: Deposit
+  TYPE_REVERT: Refund
+  TYPE_PAY_PENALTY: Withdraw for penalty
+  TYPE_DEPOSIT_PENALTY: Deposits based on fines
+  TYPE_CONTRACT_PRICE_PAY: Contract payment
+  TYPE_CONTRACT_PRICE_DEPOSIT: Contract deposit
+operationStatus:
+  1: Sent to clearing
+  2: Sent to bank
+  3: Transferred to account
+  4: Paid
+  5: Blocked
+  6: Unblocked
+  7: Refilled
+  22: Error sending to bank
+  33: Bank error
+documentNumber: Document number
+summa: Summ
+hideAmount: Hide amount
+#  default
+sms: Message
+analytics: Analytics
+suppliersOffice: Supplier's office
+exitTheOffice: Exit the office
+cabinet: Cabinet
+languages:
+  ru: Русский
+  uz: O'zbekcha
+  en: English
+
+menu:
+  main: Home
+  products: Products
+  tariffs: Rates
+  about: About Us
+  contacts: Contacts
+
+receivedRequestPrices: Received request price
+applicationForConfirmation: Application for confirmation
+requestPrice: Price request
+agreeWithOfferedPrice: Agree with the offered price
+suggest: Suggest
+sort: Sort
+applicationNumber: Application number
+provider: Provider
+qty: Qty
+more: More
+measures: Measures
+createContract: Create an agreement
+suggestPrice: Suggest price
+productPrice: Product price
+offeredPrice: Suggested price
+total: Total
+login: Login
+downloadContract: Download contract
+allProducts: All products
+cancelledProducts: Cancelled
+archiveProducts: Archive products
+productStatuses:
+  Archived: Archived
+  Published: On sale
+  Moderating: In moderation
+  Cancelled: Cancelled
+requestStatuses:
+  LeftRequestFromCustomer: Suggested price by customer
+  LeftRequestFromSeller: Bid by you
+  ConclusionContract: Concluding an agreement
+  CancelledBySeller: Denied by seller
+  CancelledByCustomer: Denied by client
+  AcceptedByCustomer: The client agrees with the offered price
+basketStatuses:
+  InProgress: In progress
+  canceledByYou: Canceled by you
+  LeftRequestFromCustomer: Suggested price by you
+  LeftRequestFromSeller: Suggested price by the seller
+  ConclusionContract: Concluding an agreement
+  CancelledBySeller: Denied by seller
+  CancelledByCustomer: Denied by client
+  AcceptedByCustomer: Agree with the offered price
+descriptions: Descriptions
+isMain: Is Main
+isTop: Is Top
+DATA: DATA
+CONTRACT: CONTRACT
+TYPE_OPERATION: TYPE OPERATION
+NOTES: NOTES
+TOTAL: TOTAL
+requestHasBeenSent: Request has been sent
+loginWithEDS: Login with EDS
+loginInSystem: Login
+chooseAKey: Choose a key
+youMayNotHaveEIMZO: You may not have EIMZO installed. Install and try again.
+whatIsAnEDSKey: What is an EDS key
+signInWithEDS: Sign in with EDS
+toComeIn: To come in
+theProductHasBeen: The product has been successfully uninstalled
+removed: Removed
+successfullySigned: Success fully signed
+refuse: Refuse
+refused: Refused
+signAnAgreement: Sign an angreement
+sign: Sign
+viewAll: View all
+purchaseTemplate: Purchase Template
+theSupplierSignedTheContract: The supplier signed the contract
+theCustomerSignedTheContract: The customer signed contract
+successfully: Successfully
+productSavedSuccessfully: Product save successfully
+signedAnAgreement: signed an agreement
+entity: Entity
+JSHSHIR: JSHSHIR
+loginWithPhoneNumber: Login with phone number
+awaitingConfirmationFrom: Awaiting confirmation from
+contractInformation: Contract Information
+totalContractAmount: Total contract amount
+customerInformation: Customer information
+tinOfTheCustomer: TIN of the customer
+addressDistrictDelivery: Address district delivery
+fieldOfActivity: Field of activity
+naturalGasProduction: Natural gas production
+legalAddress: Legal address
+contactNumber: Contact number
+agreementStatus: Agreement status
+completed: Completed
+paid: Paid
+amountOfTheDeal: the amount of the deal
+contractCompleted: Contract completed
+contractDetails: Contract details
+submit: Submit
+successfullyModified: Successfully modified
+waitingConfirmationSeller: Waiting for confirmation from the seller
+waitingConfirmationCustomer: Waiting for confirmation from the customer
+pastePhoneNumber: Past {phone} here?
+error: Error
+contractStatus:
+  Created: Created
+  SignedByCustomer: Signed by customer
+  SignedBySeller: Signed by seller
+  Closed: Closed
+  Cancelled: Cancelled
+agreedPrice: Agreed price
+enterCategoryName: Enter category name
+categoryName: Category name
+topCategories: Top Categories
+date: Date
+from: from
+before: before
+apply: Apply
+contractNumber: Contract number
+throughClearing: Through clearing
+piece: Piece

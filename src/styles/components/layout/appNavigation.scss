@@ -1,0 +1,30 @@
+.navigation {
+  color: #A2A5B9;
+  margin-top: 25px;
+  a {
+    font-size: 15px;
+    letter-spacing: .3px;
+    &:hover div {
+      background: #4A5C71;
+      color: #fff;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      padding-left: 50px;
+      height: 40px;
+      &.is-active {
+        background: #4A5C71;
+        color: #fff;
+      }
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 13px;
+    }
+  }
+  li {
+  }
+}

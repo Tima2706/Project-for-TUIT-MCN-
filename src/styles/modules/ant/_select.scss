@@ -1,0 +1,56 @@
+#app, /*.ant-modal-root*/ {
+  .ant-select-selector {
+    border-radius: 6px !important;
+    height: 36px !important;
+    background: #FAFBFC !important;
+
+    &.has-error {
+      @apply text-danger border-danger;
+      box-shadow: 0 0 14px rgb(255 0 0 /50%) inset;
+    }
+  }
+
+  .ant-select-multiple .ant-select-selection-item {
+    height: 24px !important;
+    line-height: 24px !important;
+  }
+
+  .ant-input:focus, .ant-input-focused {
+    box-shadow: none;
+
+    &.has-error {
+      @apply text-danger border-danger;
+      box-shadow: 0 0 14px rgb(255 0 0 /50%) inset;
+    }
+  }
+
+  .ant-select {
+    .ant-select-selector {
+      box-shadow: none;
+    }
+    &.has-error {
+      .ant-select-selector {
+        box-shadow: 0 0 14px rgb(255 0 0 /50%) inset;
+        @apply text-danger border-danger;
+      }
+    }
+  }
+
+
+  .helper-message {
+    min-height: 22px;
+    font-size: 12px;
+    padding-top: 3px;
+  }
+
+  .ant-input-affix-wrapper {
+    border-radius: 6px;
+  }
+
+}
+
+.ant-select-selector {
+  border-radius: 6px !important;
+  height: 36px !important;
+  background: #FAFBFC !important;
+}

@@ -1,0 +1,38 @@
+.filter_btn {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #DFE2E9;
+    padding: 10px;
+    color: #0096B2;
+
+    svg {
+        display: inline-block;
+        margin-right: 9px;
+        fill: #0096B2;
+    }
+}
+.user-create-btn {
+    display: flex;
+    align-items: center;
+    svg {
+      display: inline-block;
+      margin-right: 9px;
+    }
+  }
+
+  .user-search-input {
+
+    input {
+      height: 30px !important;
+    }
+
+    &__icon {
+      @apply text-primary;
+    }
+  }
+  .ant-dropdown-link{
+    .anticon {
+      display: none !important;
+    }
+  }

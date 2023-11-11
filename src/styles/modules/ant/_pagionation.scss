@@ -1,0 +1,22 @@
+#app{
+  .ant-pagination {
+    li{
+      &.ant-pagination-item{
+        border: 1px solid #DFDFDF;
+        a{
+          font-weight: 700;
+          font-size: 14px;
+          color: #48545D;
+        }
+      }
+      &.ant-pagination-item-active{
+        a{
+          color: #fff;
+        }
+        background: #0096B2;
+        border: none;
+        box-shadow: 0 4px 4px rgba(0, 150, 178, 0.16);
+      }
+    }
+  }
+}

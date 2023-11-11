@@ -1,0 +1,20 @@
+.input {
+  height: 36px;
+  border-radius: 6px;
+  color: #7A889B;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: .25s;
+  background: #FAFBFC;
+  &:focus {
+    border-color: #1fadbf;
+    box-shadow: 0 0 0 2px rgb(0 150 178 / 20%);
+    border-right-width: 1px !important;
+    outline: 0;
+  }
+  &.has-error {
+    @apply text-danger border-danger;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "@antfu",
+  "ignorePatterns": [
+    "*ckeditor.js"
+  ],
+  "rules": {
+    "vue/no-export-in-script-setup": "off",
+    "vue/no-reserved-component-names": "off",
+    "vue/no-mutating-props": "off",
+    "linebreak-style": "error"
+  }
+}

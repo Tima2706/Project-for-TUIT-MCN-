@@ -1,0 +1,69 @@
+.ant-layout-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-layout-header {
+  background: #303D4D;
+  line-height: 1;
+
+  &__inner {
+    height: 48px;
+    max-width: 1230px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+.nav {
+  font-weight: 500;
+  color: #FFFFFF;
+  flex-grow: 1;
+
+  a {
+    padding-left: 16px;
+    padding-right: 16px;
+    color: #A2A5B9;
+
+    &.active, &:hover {
+      color: #FFFFFF;
+    }
+  }
+}
+
+.logo {
+  flex-basis: 160px;
+  img {
+    width: 25%;
+  }
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+  font-weight: 500;
+  color: #fff;
+
+  &:hover {
+    color: #A2A5B9;
+  }
+}
+
+.dropdown-trigger-separator {
+  width: 1px;
+  background: #48596D;
+  height: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,77 @@
+@import '../../../assets/scss/mixins';
+
+.status {
+
+  &__block {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(211px, 1fr) ) ;
+    margin: 0 -12px;
+    padding: 12px;
+  }
+
+  &__item {
+    height: 115px;
+    background: #FFFFFF;
+    border: 1px solid #DFE2E9;
+    border-radius: 6px;
+    padding: 16px 18px;
+    position: relative;
+    .abs_befor {
+      width: 5px;
+      height: 86px;
+      position: absolute;
+      left: 0;
+      border-radius: 0px 5px 5px 0px;
+    }
+
+    h1 {
+      font-weight: 500;
+      color: #A2A5B9;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 23px;
+    }
+
+    span {
+      font-size: 15px;
+      margin-left: 6px;
+    }
+
+    a {
+      color: #0096B2;
+    }
+
+  }
+
+  .abs_bg_greey {
+    background: #67B771;
+  }
+  .abs_bg_yellow {
+    background: #FBB040;
+  }
+  .abs_bg_red {
+    background: #ED5151;
+  }
+  .abs_bg_black {
+    background: #4A5C71;
+  }
+
+  .color_greey {
+    color:#67B771;
+  }
+  .color_yellow {
+    color: #FBB040;
+  }
+  .color_red {
+    color: #ED5151;
+  }
+  .color_black {
+    color: #4A5C71;
+  }
+
+}

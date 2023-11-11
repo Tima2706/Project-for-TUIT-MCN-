@@ -1,0 +1,348 @@
+RKP: РКП
+erroneousTransactions: Ошибочные транзакции
+withdraw: Вывести
+blockedDeposit: Блокированный (Депозит)
+moderation: Модерация
+access: Доступ
+rolesAndAccess: Роли и доступы к модулям
+increase: В порядке возрастания цены
+decrease: В порядке убывания цены
+products: Продукты
+seller: Продавец
+success: Успешно сохранено
+successDeleted: Успешно удалено
+lists: Списки
+addProduct: Добавить продукт
+noData: Нет данных
+published: Опубликован
+unpublished: Отменить публикацию
+edit: Редактировать
+delete: Удалить
+confirmDelete: Действительно хотите удалить?
+yes: Да
+no: Нет
+basicData: Основные данные
+characteristicProduct: Характеристики товара
+priceAvailability: Цена и наличие
+other: Другие
+cancel: Отменить
+save: Сохранить
+productName: Название продукта
+createProduct: Добавить продукт
+editProduct: Редактировать продукт
+vendorCode: Артикул
+codeTnVed: Код ТН ВЭД
+tnVed: ТН ВЭД
+productsAccordingToTnVed: Продукты по ТН ВЭД
+ifNotTnCode: Если в списке нет ТН ВЭД, можно
+addHere: Добавить здесь
+categories: Категории
+addCategory: Добавить категории
+editCategory: Редактировать категории
+brands: Бренды
+goodExpirationDate: Срок годности товара
+timingType: Тип сроки
+group: Группа
+productColor: Цвет товара
+salesType: Тип продажи
+priceType: Тип цена
+priceAndProductAvailability: Цена и наличие продукта
+price: Цена
+unit: Единица измерения
+stock: В наличии
+minimumOrder: Минимальный заказ
+maximumOrder: Максимальный заказ
+discount: Скидка
+product_condition: Состояние товара
+shippingInformation: Информация о доставки
+deliveryTime: Сроки поставки
+deliveryType: Тип доставки
+photoProduct: Фотографии товара
+select: Выбрать
+photoSizeNotLessThen: Размер фотографии не менее чем
+mb: мб
+format: Формат
+addService: Добавить услугу
+profile: Профиль
+requisites: Реквизиты
+addBankRequisites: Добавить реквизит банка
+editBankRequisites: Редактировать реквизит банка
+name: Название
+organization: Тип организации
+director: Директор
+type: Тип
+customer: Заказчик
+direction: Направление
+other$: Прочие
+address: Адрес
+oked: ОКЕД
+tin: ИНН
+checkingAccount: Расчетный счет
+mfi: МФО
+webSiteOrganization: Веб-сайт организации
+email: Email
+countEmployee: Количество сотрудников
+phone: Телефон
+editPassword: Изменить пароль
+password: Пароль
+bankName: Название банка
+status: Статус
+actions: Действия
+bankDetail: Банковские реквизиты
+main: Основной
+secondary: Вторичный
+accountNumber: Номер счета
+setAsPrimary: Сделать основным
+add: Добавить
+companyTypes:
+  private: Частный
+  budget: Бюджет
+  corporate: Корпоративный
+  foreign: Иностранный
+
+companyName: Название компании
+companyType: Тип компании
+employeeCount: Кол-во сотрудников
+webSite: Веб-сайт
+elEmail: Эл. почта
+numberPhone: Номер телефона
+logo: Логотип
+download: Загрузить
+certificates: Сертификаты
+sumPcs: сум/шт
+sum: сум
+pc: шт
+photo: Фото
+fullName: ФИО
+position: Должность
+role: роль
+users: Пользователи
+addUsers: Добавить сотрудника
+editUsers: Изменить сотрудника
+passportData: Паспортные данные
+personalData: Личные данные
+firstName: Имя
+lastName: Фамилия
+surname: Отчество
+dateOfReceiving: Дата получения
+pickupAddress: Адрес получения
+photoLong: Фотография
+close: Закрыть
+back: Назад
+next: Далее
+#  contract
+decorated: Оформленные
+prisoners: Заключенные
+forExecution: На выполнение
+fullFilled: Выполненный
+terminated: Расторженные
+invoice: Счет фактуры
+electronicInvoice: Электронный счет фактуры
+contracts: Договоры
+filter: Фильтр
+exportToExel: Экспорт в XLS
+search: Поиск
+standardTemplates: Стандартные шаблоны
+nameTemplate: Название шаблона
+creator: Создатель
+createdDate: Дата создания
+updatedDate: Дата изменения
+basket: Корзина
+blockCustomer: Блокировать заказчика
+#  basket
+youHaveTry: У вас есть { count } попытка
+youHaveNoTry: У вас не осталась попытка
+commercialOffers: Коммерческая предложения
+downloadPdf: Скачать в PDF
+color: Цвет
+size: Размер
+count: Количество
+suggestedPrice: Предложенная цена
+mountainBike: Горный велосипед
+multi: Мульти
+individually: Индивидуально
+offeredPriceByTheSupplier: Предлложенная цена поставщиком
+offeredPriceByYou: Предлложенная цена Вами
+comment: Комментарий
+offerDifferentAmount: Уважаемый клиент, мы не удовлетворены вашим предложением. Я предложу вам разумную цену
+offerPrice: Предложить цену
+primary: Начальной
+proposed: Предложенной
+supplierAgreesWithOfferedPrice: Поставщик согласен с предложенной ценой
+canceledOrder: Отменить заказ
+submitForApproval: Отправить для согласования
+selectedProduct: Выбранные товары
+mySuggestions: Мои предложения
+supplierOffers: Предложения поставщика
+denied: Отказанный
+all: Все
+#  balance
+balance: Баланс
+transactions: Транзакции
+operations: Операции
+remainBalance: 'Пустой остаток'
+blockedBalance: Блокированный (дипозит)
+expenses: Расходы
+throughKlering: Через клиринг
+agree: Согласится
+operationTypes:
+  TYPE_PAYMENT: Абонентская оплата
+  TYPE_PLEDGE_BLOCK: Блок для залога
+  TYPE_PLEDGE_UNBLOCK: Разблок залога
+  TYPE_DEPOSIT: Депозит
+  TYPE_REVERT: Возврат в счет
+  TYPE_PAY_PENALTY: Снимать на штраф
+  TYPE_DEPOSIT_PENALTY: Пополнения по штрафу
+  TYPE_CONTRACT_PRICE_PAY: Оплата по контракту
+  TYPE_CONTRACT_PRICE_DEPOSIT: Оплата за депозит контракта
+operationStatus:
+  1: Отправлен в клиринг
+  2: Отправлен в банк
+  3: Переведен в счет
+  4: Оплачен
+  5: Блокирован
+  6: Разблокирован
+  7: Пополнен
+  22: Ошибка в отправление в банк
+  33: Ошибка в банке
+documentNumber: Номер документа
+summa: Сумма
+hideAmount: Скрыть сумму
+#  default
+sms: Сообщение
+analytics: Аналитика
+suppliersOffice: Кабинет поставщика
+exitTheOffice: Выйти из кабинета
+cabinet: Кабинет
+languages:
+  ru: Русский
+  uz: O'zbekcha
+  en: English
+
+menu:
+  main: Главная
+  products: Продукты
+  tariffs: Тарифы
+  about: О нас
+  contacts: Контакты
+
+receivedRequestPrices: Поступивщие запрос цен
+applicationForConfirmation: Заявка на подтверждение
+requestPrice: Запрос цен
+mySuggestion: Мои предложения
+agreeWithOfferedPrice: Согласен с предложенной ценой
+suggest: Предлагаемой
+sort: Сортировать
+applicationNumber: Номер заявки
+provider: Поставщик
+qty: Кол-во
+more: Подробнее
+measures: Единица измерения
+createContract: Создать договор
+suggestPrice: Предложить цена
+productPrice: Цена продукта
+offeredPrice: Предлагаемая цена
+total: Итого
+login: Логин
+toContract: Перейти в контракт
+downloadContract: Скачать договор
+allProducts: Все товары
+cancelledProducts: Не прошло модерацию
+archiveProducts: Архивные товары
+productStatuses:
+  Archived: Архивирован
+  Published: Публикован
+  Moderating: В модерации
+  Cancelled: Отказано
+requestStatuses:
+  LeftRequestFromCustomer: Предложено цена клиентом
+  LeftRequestFromSeller: Предложено цену вами
+  ConclusionContract: Заключон договор
+  CancelledBySeller: Отказано продавцом
+  CancelledByCustomer: Отказано клиентом
+  AcceptedByCustomer: Клиент согласен с предложенной ценой
+basketStatuses:
+  InProgress: В прогрессе
+  canceledByYou: Отказано вами
+  LeftRequestFromCustomer: Предложено цена вами
+  LeftRequestFromSeller: Предложено цену продавцом
+  ConclusionContract: Заключон договор
+  CancelledBySeller: Отказано продавцом
+  CancelledByCustomer: Отказано клиентом
+  AcceptedByCustomer: Согласен с предложенной цено
+descriptions: Описания
+isMain: Является основным
+isTop: Я остановился
+DATA: ДАТА
+mfo: МФО
+banks: Банки
+requiredFields: Поле, обязательное для заполнения
+emptyBox: Пусто
+CONTRACT: ДОГОВОР
+TYPE_OPERATION: ТИП ОПЕРАЦИЯ
+NOTES: ПРИМЕЧАНИЯ
+TOTAL: ИТОГО
+requestHasBeenSent: Запрос отправлен
+loginWithEDS: Вход с помощью ЭЦП
+loginInSystem: Вход в систему
+chooseAKey: Выберите ключ
+youMayNotHaveEIMZO: Вожможно у вас не установлен EIMZO. Установите и попробуйте еще раз.
+whatIsAnEDSKey: Что такое ЭЦП ключ
+signInWithEDS: Войти через ЭЦП
+toComeIn: Войти
+theProductHasBeen: Продукт успешно был удалено
+removed: Удалено
+successfullySigned: Успешно подписано
+refuse: Отказать
+refused: Отказано
+signAnAgreement: Подписать договор
+sign: Подписать
+viewAll: Посмотреть все
+purchaseTemplate: Шаблон за Покупку
+theSupplierSignedTheContract: Поставщик подписал договор
+theCustomerSignedTheContract: Заказчик подписал договор
+successfully: Успешно
+productSavedSuccessfully: Продукт успешно сохранено
+signedAnAgreement: подписал договор
+entity: Юр.лицо
+JSHSHIR: ЖШШИР
+loginWithPhoneNumber: Вход в систему с номером телефона
+awaitingConfirmationFrom: Ждет подтверждение от
+contractInformation: Информация о договоре
+totalContractAmount: Общая сумма договора
+customerInformation: Информация о заказчике
+tinOfTheCustomer: ИНН заказчика
+addressDistrictDelivery: Адрес (Район) доставка
+fieldOfActivity: Сфера деятельности
+naturalGasProduction: Дабыча природного газа
+legalAddress: Юридический адрес
+contactNumber: Контактный телефон
+agreementStatus: Статус договора
+completed: Выполнен
+paid: Оплачен
+amountOfTheDeal: сумма договора
+contractCompleted: Договор выполнен
+contractDetails: Детали договора
+submit: Отправить
+successfullyModified: Успешно изменено
+waitingConfirmationSeller: Ждет подтверждение исполнетеля
+waitingConfirmationCustomer: Ждет подтверждение заказчика
+pastePhoneNumber: Вставить {phone} здесь?
+error: Ошибка
+contractStatus:
+  Created: Созданный
+  SignedByCustomer: Подписано клиентом
+  SignedBySeller: Подписано продавцом
+  Closed: Закрыто
+  Cancelled: Отменено
+agreedPrice: Согласованная Цена
+enterCategoryName: Введите название категории
+categoryName: Название категории
+topCategories: Высшая категория
+date: Дата
+from: от
+before: до
+apply: Применить
+contractNumber: Контактный номер
+throughClearing: Через клиринг
+piece: Штук

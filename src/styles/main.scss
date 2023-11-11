@@ -1,0 +1,10 @@
+//tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// modules
+@import "modules/ant/index", "modules/vueDatePicker/index", "modules/helpers/index";
+
+// base
+@import "base/typography";

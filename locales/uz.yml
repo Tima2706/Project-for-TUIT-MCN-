@@ -1,0 +1,344 @@
+RKP: RKP
+erroneousTransactions: Xato operatsiyalar
+withdraw: Chiqarish
+blockedDeposit: Bloklangan (Depozit)
+increase: Narxning ushish tartibida
+decrease: Narxning kamayish tartibida
+rolesAndAccess: Rollar va modullarga ruxsat berish
+access: Ruxsat
+moderation: moderatsiya
+lists: Ro'yxatlar
+products: Mahsulotlar
+seller: Sotuvchi
+success: muvaffaqiyatli saqlangan
+successDeleted: Muvaffaqiyatli olib tashlandi
+addProduct: Mahsulot qo'shish
+noData: Ma'lumot yo'q
+published: Nashr etilgan
+unpublished: Nashrni bekor qilish
+edit: Tahrirlash
+delete: O'chirish
+confirmDelete: Haqiqatan ham o'chirmoqchimisiz?
+yes: Ha
+no: Yo'q
+mfo: MFO
+banks: Banklar
+requiredFields: Maydon to'ldirilishi shart
+emptyBox: Bo'sh
+basicData: Asosiy ma'lumotlar
+characteristicProduct: Mahsulot xususiyatlari
+priceAvailability: Narxi va mavjudligi
+other: Boshqalar
+cancel: Bekor qilish
+save: Saqlash
+productName: Mahsulot nomi
+createProduct: Mahsulot qo'shing
+editProduct: Mahsulotni tahrirlash
+vendorCode: Sotuvchi kodi
+codeTnVed: TN VED kodi
+tnVed: TN VED
+productsAccordingToTnVed: TN VED bo'yicha mahsulotlar
+ifNotTnCode: Ro'yxatda TN VED bo'lmasa, mumkin
+addHere: Bu yerga qo'shing
+categories: Kategoriyalar
+addCategory: Kategoriya qo'shish
+editCategory: Kategoriyalarni tahrirlash
+brands: Brendlar
+goodExpirationDate: Tovarlarning yaroqlilik muddati
+timingType: Vaqt turi
+group: Guruh
+productColor: Mahsulot rangi
+salesType: Sotish turi
+priceType: Narxni turi
+priceAndProductAvailability: Narx va mahsulot mavjudligi
+price: Narx
+unit: Birlik
+stock: Sotuvda mavjud
+minimumOrder: Minimal buyurtma
+maximumOrder: Maksimal buyurtma
+discount: Chegirma
+product_condition: Mahsulot holati
+shippingInformation: Yuk tashish ma'lumotlari
+deliveryTime: Yetkazib berish vaqti
+deliveryType: Yetkazib berish turi
+photoProduct: Mahsulot fotosuratlari
+select: Tanlash
+photoSizeNotLessThen: Fotosurat hajmidan kam emas
+mb: mb
+format: Format
+addService: Xizmat qo'shing
+profile: Profil
+requisites: Rekvizitlar
+addBankRequisites: Bank tafsilotlarini qo'shish
+editBankRequisites: Bank ma'limotlarini tahrirlash
+name: Ism
+organization: Tashkilot turi
+director: Direktor
+type: Turi
+customer: Mijoz
+direction: Yo'nalish
+other$: Boshqa
+address: Manzil
+oked: OKED
+tin: TIN
+checkingAccount: Hisob raqami
+mfi: MFI
+webSiteOrganization: Tashkilot sayti
+email: Elektron pochta
+countEmployee: Xodimlar soni
+phone: Telefon
+editPassword: Parolni o'zgartirish
+password: Parol
+bankName: Bank nomi
+status: Holati
+actions: Harakatlar
+bankDetail: Bank rekvizitlari
+agree: Roziman
+throughKlering: Kliring orqali
+main: Asosiy
+secondary: Ikkilamchi
+accountNumber: Hisob raqami
+setAsPrimary: Asosiy qilib belgilang
+add: Qo'shing
+companyTypes:
+  private: Shaxsiy
+  budget: Byudjet
+  corporate: Korporativ
+  foreign: Xorijiy
+companyName: Shirkat nomi
+companyType: Kompaniya turi
+employeeCount: Xodimlar soni
+webSite: Veb sayt
+elEmail: Elektron pochta
+numberPhone: Telefon raqami
+logo: Logotip
+download: Yuklab olish
+certificates: Sertifikatlar
+sumPcs: so'm/dona
+sum: so'm
+pc: dona
+photo: Surat
+fullName: To'liq ism
+position: Lavozim
+role: roli
+users: Foydalanuvchilar
+addUsers: Xodimni qo'shish
+editUsers: Xodimni almashtirish
+passportData: Pasport ma'lumotlari
+personalData: Shaxsiy ma'lumotlar
+firstName: Ism
+lastName: Familiya
+surname: Otasining ismi
+dateOfReceiving: Qabul qilish sanasi
+pickupAddress: Olib ketish manzili
+photoLong: Fotosurat
+close: Yopish
+back: Orqaga
+next: Keyinggisi
+#  contract
+decorated: Shartnoma tuzilgan
+prisoners: Shartnoma tuzish
+forExecution: Amalga oshirish uchun
+fullFilled: Bajarildi
+terminated: Tugatilgan
+invoice: Hisob faktura
+electronicInvoice: Elektron hisob faktura
+contracts: Shartnomalar
+filter: Filtr
+exportToExel: Exel ga eksport qiling
+search: Izlash
+standardTemplates: Standart shablonlar
+nameTemplate: Shablon nomi
+creator: Yaratuvchi
+createdDate: Yaratilgan sanasi
+updatedDate: O'zgartirish sanasi
+basket: Savat
+blockCustomer: Mijozni bloklash
+#  basket
+youHaveTry: Sizda {count} urinishlar mavjud
+youHaveNoTry: Sizda narx taklif qilishga imkoniyatlar qolmadi
+commercialOffers: Tijorat takliflari
+downloadPdf: PDF formatida yuklab olish
+color: Rang
+size: Hajmi
+count: Miqdori
+suggestedPrice: Tavsiya etilgan narx
+mountainBike: Tog'li velosiped
+multi: Birnechta
+individually: Alohida
+offeredPriceByTheSupplier: Yetkazib berivchi tomonidan taklif qilingan narx
+offeredPriceByYou: Siz taklif qilgan narx
+comment: Izoh
+offerDifferentAmount: Xurmatli mijoz, siz bergan taklif bizga to'g'ri kelmadi. Sizga quyidagi narxni taklif qilaman
+offerPrice: Taklif narxi
+primary: Asosiy
+proposed: Taklif qilingan
+supplierAgreesWithOfferedPrice: Yetkazib beruvchi taklif qilingan narxga rozi
+canceledOrder: Buyurtmani bekor qilish
+submitForApproval: Tasdiqlash uchun yuboring
+selectedProduct: Tanlangan mahsulotlar
+mySuggestions: Mening takliflarim
+supplierOffers: Yetkazib beruvchi takliflari
+denied: Rad etdi
+all: Hammasi
+#  balance
+balance: Balans
+transactions: Bitimlar
+operations: Operatsiyalar
+remainBalance: Bo'sh summa
+blockedBalance: Bloklangan summa
+expenses: Xarajatlar
+operationTypes:
+  TYPE_PAYMENT: Abonent to'lovi
+  TYPE_PLEDGE_BLOCK: Garov uchun blok
+  TYPE_PLEDGE_UNBLOCK: Garovdan chiqarilgan
+  TYPE_DEPOSIT: Depozit
+  TYPE_REVERT: Hisob raqamiga qaytarilgan
+  TYPE_PAY_PENALTY: Jarima uchun to'lov
+  TYPE_DEPOSIT_PENALTY: Jarimadan tushgan mablag'
+  TYPE_CONTRACT_PRICE_PAY: Shartnoma bo'yicha to'lov
+  TYPE_CONTRACT_PRICE_DEPOSIT: Kontrakt depoziti uchun to'lov
+hideAmount: Miqdorni yashirish
+operationStatus:
+  1: Kleringga jo'natildi
+  2: Bankka jo'natildi
+  3: Xisob raqamiga o'tkazildi
+  4: To'landi
+  5: Bloklangan
+  6: Blokdan chiqarilgan
+  7: To'ldirilgan
+  22: Bankka jo'natishda xatolik
+  33: Bankda xatolik
+#  default
+sms: Xabar
+analytics: Analitika
+suppliersOffice: Yetkazib beruvchi idorasi
+exitTheOffice: Kabinetdan chiqish
+cabinet: Kabinet
+languages:
+  ru: Русский
+  uz: O'zbekcha
+  en: English
+menu:
+  main: Asosiy
+  products: Mahsulotlar
+  tariffs: Tariflar
+  about: Biz haqimizda
+  contacts: Kontaktlar
+receivedRequestPrices: Narxlar bo'yicha so'rov
+applicationForConfirmation: Tasdiqlash uchun ariza
+requestPrice: Narx so'rovi
+mySuggestion: Mening takliflarim
+agreeWithOfferedPrice: Taklif etilgan narxga rozi bo'ling
+suggest: Taklif qilingan
+sort: saralash
+applicationNumber: Ariza raqami
+provider: Yetkazib beruvchi
+qty: Miqdor
+more: Ko'proq
+measures: O'lcho'v birligi
+createContract: Shartnoma tuzish
+suggestPrice: Narxni taklif qiling
+productPrice: Mahsulot narxi
+offeredPrice: Tavsiya etilgan narx
+total: Jami
+login: Login
+downloadContract: Shartnomani yuklab olish
+allProducts: Barcha mahsulotlar
+cancelledProducts: Moderatsiyadan o'tmaganlar
+archiveProducts: Arxiv mahsulotlar
+productStatuses:
+  Archived: Arxivlangan
+  Published: Sotuvda
+  Moderating: Moderatsiya
+  Cancelled: Bekor qilinganlar
+requestStatuses:
+  LeftRequestFromCustomer: Mijoz tomonidan tavsiya etilgan narx
+  LeftRequestFromSeller: Siz narx taklif qiling
+  ConclusionContract: Shartnoma tuzish
+  CancelledBySeller: Sotuvchi tomonidan rad etilgan
+  CancelledByCustomer: Mijoz tomonidan rad etilgan
+  AcceptedByCustomer: Mijoz taklif qilingan narxga rozi
+basketStatuses:
+  InProgress: Jarayonda
+  canceledByYou: Siz rad etdingiz
+  LeftRequestFromCustomer: Siz taklif qilgan narx
+  LeftRequestFromSeller: Sotuvchi tomonidan tavsiya etilgan narx
+  ConclusionContract: Shartnoma tuzish
+  CancelledBySeller: Sotuvchi tomonidan rad etildi
+  CancelledByCustomer: Mijoz tomonidan rad etildi
+  AcceptedByCustomer: Taklif etilgan narxga rozi bo'ling
+descriptions: Tavsiflar
+isMain: Asosiy hisoblanadi
+isTop: Top 10talikda
+DATA: SANA
+CONTRACT: SHARTNOMA
+TYPE_OPERATION: Operatsiya turi
+NOTES: QAYDLAR
+TOTAL: JAMI
+requestHasBeenSent: So'rov yuborildi
+loginWithEDS: E-imzo bilan tizimga kirish
+loginInSystem: Tizimga kirish
+chooseAKey: Kalitni tanlang
+youMayNotHaveEIMZO: Sizda E IMZO o'rnatilmagan bo'lishi mumkin. O'rnating va qayta urinib ko'ring.
+whatIsAnEDSKey: E-imzo kaliti nima
+signInWithEDS: E-imzo bilan kirish
+toComeIn: Kirish
+theProductHasBeen: Mahsulot muvaffaqiyatli o'chirildi
+removed: O'chirildi
+successfullySigned: Muvaffaqiyatli imzolandi
+refuse: Rad qilish
+refused: Bekor qilingan
+signAnAgreement: Shartnoma imzolash
+sign: Obuna bo'lish
+viewAll: Hammasini ko'rish
+purchaseTemplate: Shablon sotib olish
+theSupplierSignedTheContract: Yetkazib beruvchi shartnomani imzoladi
+theCustomerSignedTheContract: Xaridor shartnomani imzoladi
+successfully: Muvaffaqiyatli
+productSavedSuccessfully: Mahsulot muvaffaqiyatli saqlandi
+signedAnAgreement: shartnoma imzoladi
+entity: Tashkilot
+JSHSHIR: JSHSHIR
+loginWithPhoneNumber: Telefon raqami bilan tizimga kirish
+awaitingConfirmationFrom: Dan tasdiqlash kutilmoqda
+contractInformation: Shartnoma ma'lumotlari
+totalContractAmount: Shartnomaning umumiy miqdori
+customerInformation: Mijoz ma'lumotlari
+tinOfTheCustomer: Mijozning STIR
+addressDistrictDelivery: Manzil (tuman) yetkazib berish
+fieldOfActivity: Ish yuritish sohasi
+naturalGasProduction: Tabiiy gaz ishlab chiqarish
+legalAddress: Yuridik manzil
+contactNumber: Aloqa telfon raqami
+agreementStatus: Shartnoma holati
+completed: Bajarildi
+paid: To'langan
+amountOfTheDeal: bitim miqdori
+contractCompleted: Shartnoma bajarildi
+contractDetails: Shartnoma tafsilotlari
+submit: Yuborish
+successfullyModified: Muvaffaqiyatli o'zgartirildi
+waitingConfirmationSeller: Sotuvchining tasdiqini kutilmoqda
+waitingConfirmationCustomer: Xaridor tasdiqini kutilmoqda
+pastePhoneNumber: Shu yerga qo'shilsinmi {phone} ?
+documentNumber: Xujjat raqami
+summa: Summ
+error: Xato
+contractStatus:
+  Created: Yaratilgan
+  SignedByCustomer: Xaridor tomonidan imzolangan
+  SignedBySeller: Sotuvchi tomonidan imzolangan
+  Closed: Yopiq
+  Cancelled: Bekor qilingan
+agreedPrice: Kelishilgan narx
+enterCategoryName: Kategoriya nomini kiriting
+categoryName: Kategoriya nomi
+topCategories: Top Kategoriyalar
+date: Yaratilgan sana
+from: dan
+before: gacha
+apply: Qidirish
+contractNumber: Shartnoma raqami
+throughClearing: Tozalash orqali
+piece: Dona
