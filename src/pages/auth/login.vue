@@ -15,7 +15,7 @@ const changeForm = (t: FORM_TYPE) => {
 const isLoginWithKeyFormActive = computed(() => activeForm.value === 'withKey')
 
 const onSuccessLogin = async ({ access_token, expiresIn }: { access_token: string; expiresIn: number }) => {
-  const nextPath = (route.query.next as string) || { name: 'profile' }
+  const nextPath = (route.query.next as string) || { name: 'balance' }
   setToken(access_token, expiresIn)
   await getOrganization()
   await router.replace(nextPath)

@@ -1,4 +1,5 @@
 RKP: RKP
+reset: Reset
 erroneousTransactions: Erroneous transactions
 withdraw: Withdraw
 blockedDeposit: Blocked (deposit)
