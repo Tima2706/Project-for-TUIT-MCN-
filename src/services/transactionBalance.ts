@@ -13,6 +13,16 @@ export const getOperations = (params: Record<string, number>, id: string) => {
     params,
   })
 }
-export const getOrganizationPartner = (form: any) => {
-    return $http.get('organizations', form)
+export const getOrganizationPartner = () => {
+    return $http.get('organizations')
+}
+export const getBankingType = (params: Record<string, number>, id: string) => {
+    return $http.get('operations-search?organization_id=7d28b7db-c6e1-442e-af46-c6635eca7748&type[]=4&type[]=5', {
+        params
+    })
+}
+export const ErrorTransaction = (params: Record<string, number>, id: string) => {
+    return $http.get('operations-search?organization_id=7d28b7db-c6e1-442e-af46-c6635eca7748&type=5&status[]=22&status[]=33', {
+        params
+    })
 }

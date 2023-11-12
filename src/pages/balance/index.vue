@@ -44,6 +44,7 @@ const columns = [
 const lastPage = ref(1)
 const bankFilter = ref<any>({
   note: '',
+  partner_organization_id: '',
   from_summa: null,
   to_summa: null,
   from_date: '',
@@ -139,27 +140,5 @@ const onChangePage = () => {
     transform: translateY(30px);
   }
 }
-.search_btn-reset{
-  background: #D65E81;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
-  font-weight: 500;
-  transition: .8s;
-  &:hover{
-    border: 1px solid #D65E81;
-    background: #FFFFFF;
-    color: #D65E81;
-  }
-}
-.search_btn-apply{
-  background: #FFFFFF;
-  color: #0096B2;
-  transition: .8s;
-  font-weight: 500;
-  &:hover{
-    border: 1px solid #0096B2;
-    background: #0096B2;
-    color: #FFFFFF;
-  }
-}
+
 </style>

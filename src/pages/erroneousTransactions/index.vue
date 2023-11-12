@@ -6,7 +6,7 @@ import { getBanks } from '~/services/banking.js'
 import { useFetchData } from '~/composables/useFetch'
 import Filter from '~/assets/icons/filter.svg'
 import Hashtag from '~/assets/icons/hashtag.svg'
-
+import {ErrorTransaction} from "~/services/transactionBalance";
 const { t } = useI18n()
 
 const value1 = ref('lucy')
@@ -44,8 +44,6 @@ const columns = [
 ]
 const lastPage = ref<number>(1)
 const params = reactive({
-  organization_id: '4638d424-6345-4e87-b6d6-72c4f76f935b',
-  type: 5,
   page: 1,
 })
 
@@ -57,7 +55,7 @@ const {
   async () => {
     const {
       data: { data, last_page },
-    } = await getBanks(params, '4638d424-6345-4e87-b6d6-72c4f76f935b')
+    } = await ErrorTransaction(params)
     lastPage.value = last_page
     return { data }
   },
@@ -146,7 +144,7 @@ const handleChange = (value: string) => {
             <template v-if="column.key === 'status'">
               <span>
                 <a-tag color="green">
-                  {{ record.status }}
+                  {{ record.status === 33 ? 'Ошибка из банка' : 'Ошибка при отправлении в банк'}}
                 </a-tag>
               </span>
             </template>

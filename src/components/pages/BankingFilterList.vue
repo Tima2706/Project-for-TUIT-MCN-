@@ -68,27 +68,27 @@ getOrganizationForSearch()
         </VText>
         <a-input style="width: 122px;" v-model:value="filterData.doc_number" :placeholder="t('-')"  type="number" />
       </div>
-      <div class="mb-3">
-                <VText weight="500" size="12" class="mb-1">
-                  {{ $t('partner') }}
-                </VText>
-        <a-select
-            v-model:value="filterData.partner_organization_id"
-            show-search
-            allow-clear
-            style="width: 470px"
-            :field-names="{ label: 'name', value: 'id' }"
-            :options="organizations"
-            :filter-option="filterOption"
-            @change="onSearch"
-        />
-      </div>
-      <div class="mb-3">
-        <VText weight="500" size="12" class="mb-1">
-          {{ $t('nameOfProduct') }}
-        </VText>
-        <a-input style="width: 435px" v-model:value="filterData.product_name"  type="text" />
-      </div>
+<!--      <div class="mb-3">-->
+<!--        <VText weight="500" size="12" class="mb-1">-->
+<!--          {{ $t('partner') }}-->
+<!--        </VText>-->
+<!--        <a-select-->
+<!--            v-model:value="filterData.partner_organization_id"-->
+<!--            show-search-->
+<!--            allow-clear-->
+<!--            style="width: 470px"-->
+<!--            :field-names="{ label: 'name', value: 'id' }"-->
+<!--            :options="organizations"-->
+<!--            :filter-option="filterOption"-->
+<!--            @change="onSearch"-->
+<!--        />-->
+<!--      </div>-->
+<!--      <div class="mb-3">-->
+<!--        <VText weight="500" size="12" class="mb-1">-->
+<!--          {{ $t('nameOfProduct') }}-->
+<!--        </VText>-->
+<!--        <a-input style="width: 435px" v-model:value="filterData.product_name"  type="text" />-->
+<!--      </div>-->
     </div>
     <div class="flex justify-between mt-3">
       <div class="flex gap-2 items-center">
