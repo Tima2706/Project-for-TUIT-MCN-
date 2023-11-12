@@ -37,8 +37,9 @@ const onSearch = (input: string) => {
 }
 const submit = () => {
   emit('changed', {
-    ...props.filter,
+    ...filterData.value,
   })
+  console.log(filterData.value)
 }
 </script>
 <template>

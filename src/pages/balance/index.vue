@@ -42,9 +42,8 @@ const columns = [
 
 ]
 const lastPage = ref(1)
-const bankFilter = reactive<any>({
+const bankFilter = ref<any>({
   note: '',
-  partner_organization_id: '',
   from_summa: null,
   to_summa: null,
   from_date: '',
@@ -57,18 +56,20 @@ const params = reactive({
 })
 
 const { data: transactionBalance, loading: transactionBalanceLoading } = useFetchData<TransactionBalance>(async () => {
-  const { data } = await getTransactionBalance({...bankFilter})
-  return { data }
+  const { data } = await getTransactionBalance()
+
+  return {data: data.data[0]}
 }, { immediately: true })
 
 const { data: operations, loading: operationsLoading, fetch } = useFetchData<any[]>(async () => {
-  const { data: { data, last_page } } = await getOperations({ ...params })
+  const { data: { data, last_page } } = await getOperations({ ...params,   ...bankFilter.value })
   lastPage.value = last_page
   return { data }
 }, { immediately: true })
 
 const onChangeFilter = (filter: any) => {
   bankFilter.value = {...filter}
+  fetch()
 }
 
 const onChangePage = () => {
