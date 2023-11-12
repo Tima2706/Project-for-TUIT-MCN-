@@ -42,7 +42,7 @@ const columns = [
 
 ]
 const lastPage = ref(1)
-const bankFilter = ref<any>({
+const bankFilter = reactive<any>({
   note: '',
   partner_organization_id: '',
   from_summa: null,
