@@ -5,6 +5,7 @@ import type { TransactionBalance } from '~/services/dto/transcationBalance'
 export const getTransactionBalance = (): Promise<
   AxiosResponse<TransactionBalance>
 > => {
+
   return $http.get('transaction/balance')
 }
 
