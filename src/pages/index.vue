@@ -3,5 +3,5 @@
 </template>
 
 <route lang="yaml">
-redirect: profile
+redirect: balance
 </route>

@@ -1,4 +1,5 @@
 RKP: RKP
+reset: Tozalash
 erroneousTransactions: Xato operatsiyalar
 withdraw: Chiqarish
 blockedDeposit: Bloklangan (Depozit)
@@ -342,3 +343,4 @@ apply: Qidirish
 contractNumber: Shartnoma raqami
 throughClearing: Tozalash orqali
 piece: Dona
+nameOfProduct: Mahsulot nomi

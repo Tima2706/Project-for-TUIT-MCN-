@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 import dayjs from 'dayjs'
-import { useI18n } from 'vue-i18n'
 import { DATE_TIME_FORMAT } from '~/utils/constants'
 import BalanceStatusForm from '~/components/pages/balance/BalanceStatusForm.vue'
 import { useFetchData } from '~/composables/useFetch'
 import type { TransactionBalance } from '~/services/dto/transcationBalance'
 import { getOperations, getTransactionBalance } from '~/services/transactionBalance'
+import HashtagIcon from '~/assets/icons/hashtag.svg'
+import FilterIcon from '~/assets/icons/filter.svg'
+import {ref, reactive, onMounted} from "vue";
+import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-
+const isFilterOpened = ref<boolean>(false)
 const columns = [
-
   {
     title: t('DATA'),
     dataIndex: 'date',
@@ -39,22 +41,35 @@ const columns = [
   },
 
 ]
-
-const { data: transactionBalance, loading: transactionBalanceLoading } = useFetchData<TransactionBalance>(async () => {
-  const { data } = await getTransactionBalance()
-  return { data }
-}, { immediately: true })
-
 const lastPage = ref(1)
+const bankFilter = ref<any>({
+  note: '',
+  partner_organization_id: '',
+  from_summa: null,
+  to_summa: null,
+  from_date: '',
+  to_date: '',
+  doc_number: '',
+  product_name: '',
+})
 const params = reactive({
   page: 1,
 })
+
+const { data: transactionBalance, loading: transactionBalanceLoading } = useFetchData<TransactionBalance>(async () => {
+  const { data } = await getTransactionBalance({...bankFilter})
+  return { data }
+}, { immediately: true })
 
 const { data: operations, loading: operationsLoading, fetch } = useFetchData<any[]>(async () => {
   const { data: { data, last_page } } = await getOperations({ ...params })
   lastPage.value = last_page
   return { data }
 }, { immediately: true })
+
+const onChangeFilter = (filter: any) => {
+  bankFilter.value = {...filter}
+}
 
 const onChangePage = () => {
   fetch()
@@ -67,9 +82,26 @@ const onChangePage = () => {
       {{ t("balance") }}
     </VText>
     <BalanceStatusForm v-if="transactionBalance" :loading="transactionBalanceLoading" :info="transactionBalance" />
-    <VText weight="600" size="18" class="mt-6">
-      {{ t("operations") }}
-    </VText>
+      <ACard>
+          <div class="flex items-center justify-between">
+              <VText weight="600" size="18">
+                  {{ t("operations") }}
+              </VText>
+              <div class="flex gap-2 items-cente">
+              <AButton size="large" class="filter_btn "  @click="isFilterOpened = !isFilterOpened">
+                  <FilterIcon />
+                  {{ $t('filter') }}
+              </AButton>
+              <AButton  size="large" class="filter_btn ml-4" >
+                  <HashtagIcon style="fill: none;" />
+                  {{ $t('exportToExel') }}
+              </AButton>
+              </div>
+          </div>
+        <transition name="transition-effect" mode="out-in">
+          <BalanceFilterList :filter="bankFilter" @changed="onChangeFilter" :isFilterOpened="isFilterOpened" />
+        </transition>
+      </ACard>
     <div>
       <a-spin :spinning="operationsLoading">
         <a-table :pagination="false" :data-source="operations ? operations : []" :columns="columns">
@@ -91,4 +123,42 @@ const onChangePage = () => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../../styles/pages/contract/index.scss';
+
+.transition-effect {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.4s;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+.search_btn-reset{
+  background: #D65E81;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-weight: 500;
+  transition: .8s;
+  &:hover{
+    border: 1px solid #D65E81;
+    background: #FFFFFF;
+    color: #D65E81;
+  }
+}
+.search_btn-apply{
+  background: #FFFFFF;
+  color: #0096B2;
+  transition: .8s;
+  font-weight: 500;
+  &:hover{
+    border: 1px solid #0096B2;
+    background: #0096B2;
+    color: #FFFFFF;
+  }
+}
+</style>

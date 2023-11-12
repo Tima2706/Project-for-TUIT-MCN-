@@ -1,4 +1,4 @@
-
+import vueDevTools from 'vite-plugin-vue-devtools'
 import path from 'path'
 import { defineConfig } from 'vite'
 // import Preview from 'vite-plugin-vue-component-preview'
@@ -25,8 +25,9 @@ export default defineConfig({
   },
 
   plugins: [
-    // Preview.default(),
+    vueDevTools(),
 
+    // Preview.default(),
     VueMacros({
       plugins: {
         vue: Vue({
@@ -157,13 +158,13 @@ export default defineConfig({
   ],
 
   // https://github.com/vitest-dev/vitest
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse'],
-    },
-  },
+  // test: {
+  //   include: ['test/**/*.test.ts'],
+  //   environment: 'jsdom',
+  //   deps: {
+  //     inline: ['@vue', '@vueuse'],
+  //   },
+  // },
 
   css: {
     preprocessorOptions: {

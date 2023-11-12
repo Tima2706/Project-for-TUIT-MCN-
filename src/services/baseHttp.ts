@@ -9,11 +9,13 @@ declare module 'axios' {
   export interface AxiosRequestConfig {
   }
 }
-
+const username = 'username';
+const password = 'secret';
+const basicAuth = 'Basic ' + btoa(username + ':' + password)
 export const $http = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-
+    'Authorization': basicAuth
   },
 })
 

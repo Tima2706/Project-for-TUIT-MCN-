@@ -1,4 +1,5 @@
 RKP: RKP
+reset: Reset
 erroneousTransactions: Erroneous transactions
 withdraw: Withdraw
 blockedDeposit: Blocked (deposit)
@@ -343,3 +344,4 @@ apply: Apply
 contractNumber: Contract number
 throughClearing: Through clearing
 piece: Piece
+nameOfProduct: Name of product
