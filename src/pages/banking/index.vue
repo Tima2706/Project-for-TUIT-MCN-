@@ -12,7 +12,6 @@ import { getBankingType } from "~/services/transactionBalance";
 const { t } = useI18n();
 const isFilterOpened = ref<boolean>(false);
 
-const value1 = ref("lucy");
 const columns = [
   {
     title: t("documentNumber"),

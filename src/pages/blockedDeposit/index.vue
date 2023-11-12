@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { DATE_TIME_FORMAT } from '~/utils/constants'
 import { getBanks } from '~/services/banking.js'
 import { useFetchData } from '~/composables/useFetch'
+import {getBlockedBalance} from "~/services/transactionBalance";
 
 const { t } = useI18n()
 
@@ -13,6 +14,11 @@ const columns = [
     title: t('documentNumber'),
     dataIndex: 'doc_number',
     key: 'doc_number',
+  },
+  {
+    title: t('type'),
+    dataIndex: 'type',
+    key: 'type',
   },
   {
     title: t('DATA'),
@@ -34,16 +40,10 @@ const columns = [
     dataIndex: 'summa',
     key: 'summa',
   },
-  {
-    title: t('status'),
-    dataIndex: 'status',
-    key: 'status',
-  },
+
 ]
 const lastPage = ref<number>(1)
 const params = reactive({
-  organization_id: '4638d424-6345-4e87-b6d6-72c4f76f935b',
-  type: 5,
   page: 1,
 })
 
@@ -55,7 +55,7 @@ const {
   async () => {
     const {
       data: { data, last_page },
-    } = await getBanks(params, '4638d424-6345-4e87-b6d6-72c4f76f935b')
+    } = await getBlockedBalance(params)
     lastPage.value = last_page
     return { data }
   },
@@ -66,15 +66,13 @@ const onChangePage = () => {
   fetch()
 }
 
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`)
-}
+
 </script>
 
 <template>
   <div>
     <VText weight="600" size="18" class="mb-4">
-      {{ t("erroneousTransactions") }}
+      {{ t("blockedDeposit") }}
     </VText>
     <div>
       <a-spin :spinning="bankingLoading">
@@ -87,6 +85,10 @@ const handleChange = (value: string) => {
             <template v-if="column.key === 'organization_account.bank.mfo'">
               {{ record.organization_account.bank.mfo }}
             </template>
+            <template v-if="column.key === 'type'">
+              {{ record.type === 10 ? $t('contractLocker'): $t('withdraw') }}
+            </template>
+
             <template v-if="column.key === 'organization_account.account'">
               {{ record.organization_account.account }}
             </template>
@@ -95,13 +97,6 @@ const handleChange = (value: string) => {
             </template>
             <template v-if="column.key === 'summa'">
               {{ record.summa }}
-            </template>
-            <template v-if="column.key === 'status'">
-              <span>
-                <a-tag color="green">
-                  {{ record.status }}
-                </a-tag>
-              </span>
             </template>
           </template>
         </a-table>

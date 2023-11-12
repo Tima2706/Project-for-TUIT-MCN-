@@ -59,6 +59,7 @@ const submit = () => {
 getOrganizationForSearch()
 </script>
 <template>
+
   <div v-if="isFilterOpened === true">
     <hr style="color: #DFE2E9" class="my-4" />
     <div class="flex gap-2">

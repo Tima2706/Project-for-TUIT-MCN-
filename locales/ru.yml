@@ -2,7 +2,7 @@ RKP: РКП
 reset: Сбросить
 erroneousTransactions: Ошибочные транзакции
 withdraw: Вывести
-blockedDeposit: Блокированный (Депозит)
+blockedDeposit: Блокированный
 moderation: Модерация
 access: Доступ
 rolesAndAccess: Роли и доступы к модулям
@@ -350,3 +350,5 @@ piece: Штук
 banking: Банкинг
 nameOfProduct: Наименование товара
 note: Примечание
+contractLocker: залок контракта
+

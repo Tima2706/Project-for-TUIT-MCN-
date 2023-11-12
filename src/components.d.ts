@@ -53,5 +53,6 @@ declare module '@vue/runtime-core' {
     VImg: typeof import('./components/base/VImg.vue')['default']
     VStatus: typeof import('./components/base/VStatus.vue')['default']
     VText: typeof import('./components/base/VText.vue')['default']
+    WithdrawFilterList: typeof import('./components/pages/WithdrawFilterList.vue')['default']
   }
 }

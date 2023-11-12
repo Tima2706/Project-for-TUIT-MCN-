@@ -2,7 +2,7 @@ RKP: RKP
 reset: Tozalash
 erroneousTransactions: Xato operatsiyalar
 withdraw: Chiqarish
-blockedDeposit: Bloklangan (Depozit)
+blockedDeposit: Bloklangan
 increase: Narxning ushish tartibida
 decrease: Narxning kamayish tartibida
 rolesAndAccess: Rollar va modullarga ruxsat berish
@@ -346,5 +346,7 @@ piece: Dona
 banking: Banking
 nameOfProduct: Mahsulot nomi
 note: Eslatma
+contractLocker: Garov
+
 
 

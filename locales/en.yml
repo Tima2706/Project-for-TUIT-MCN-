@@ -2,7 +2,7 @@ RKP: RKP
 reset: Reset
 erroneousTransactions: Erroneous transactions
 withdraw: Withdraw
-blockedDeposit: Blocked (deposit)
+blockedDeposit: Blocked
 access: Access
 rolesAndAccess: Roles and access to modules
 increase: In ascending order of price
@@ -13,6 +13,7 @@ seller: Seller
 success: Success
 successDeleted: Successfully Deleted
 products: Products
+contractLocker: Contract locker
 addProduct: Add product
 noData: No data
 published: Published
