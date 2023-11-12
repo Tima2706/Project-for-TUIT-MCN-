@@ -35,7 +35,7 @@ const DEFAULT_FILTER_DATA = {
   summa: '',
   account: '',
   note: '',
-  from_organization: 'organization_id=8e636341-d899-40ee-8819-74edec19e6fc'
+  from_organization: '8e636341-d899-40ee-8819-74edec19e6fc'
 }
 
 const form = ref<any>({ ...DEFAULT_FILTER_DATA })
