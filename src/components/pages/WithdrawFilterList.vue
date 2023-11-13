@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import {useI18n} from "vue-i18n";
 import {defineProps, defineEmits, ref} from "vue";
-import type { Dayjs } from 'dayjs'
-import dayjs from 'dayjs'
 import {organizationWuthdrawal, postOrganizationWithdrawal} from "~/services/transactionBalance";
 import {notification} from "ant-design-vue";
 import { useServerError } from '~/services/useServerError'
+import { DEFAULT_ERROR_MESSAGE, SAVED_SUCCESSFULLY } from '~/utils/constants'
+
 
 const { t } = useI18n()
 const loading = ref(false)
@@ -30,6 +30,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['changed'])
 
+
 const DEFAULT_FILTER_DATA = {
   type: 5,
   summa: '',
@@ -50,15 +51,17 @@ const submit = async () => {
     try {
         await postOrganizationWithdrawal({...form.value})
       notification.success({
-        message: 'Успешно',
-        description:
-            'Продукт успешно сохранено',
+        message: SAVED_SUCCESSFULLY,
       })
+      form.value = { ...DEFAULT_FILTER_DATA };
       emit('changed');
     }
     catch (err: any) {
-      console.log(err)
+      notification.error({
+        message: DEFAULT_ERROR_MESSAGE,
+      })
       formRef.value.setErrors(getFieldErrors(err))
+
     }
     finally {
       submitLoading.value = false
@@ -82,7 +85,7 @@ getOrganizationForSearch()
 <template>
   <a-card>
     <div>
-      <a-form
+      <Field
           ref="formRef"
           name="advanced_search"
           class="ant-advanced-search-form"
@@ -90,38 +93,57 @@ getOrganizationForSearch()
         <a-row :gutter="24">
           <a-col :span="12">
             <p style="padding-bottom: 8px">{{$t('tin')}}</p>
-            <div class="mb-5" style=" padding: 10px; border-radius: 12px; background: #F0F4F9;">
+            <div class="mb-5" style=" padding: 10px; border-radius: 12px; background: #F0F4F9; ">
              <VText class="text-dark"> {{organizations?.data?.tin}}</VText>
             </div>
-            <a-form-item name="Расчетный счет" label="Расчетный счет">
+            <VText size="12" weight="400" class="mb-2">
+              {{ $t('checkingAccount') }}
+            </VText>
+            <Field v-slot="{ errors }" :model-value="form.account" name="account" rules="required">
                       <a-select
+
                           v-model:value="form.account"
                           show-search
                           allow-clear
-                          style="width: 470px"
+                          style="width: 100%"
+                          :class="{ 'has-error': errors.length }"
                           :field-names="{ label: 'account', value: 'account' }"
                           :options="organizations?.data?.items"
                           :filter-option="filterOption"
                       />
-            </a-form-item>
-            <a-form-item name="Сумма проводки" label="Сумма проводки" >
-              <a-input  v-model:value="form.summa" />
-              <v-text>Можно вывести: {{organizations?.data?.available_balance ? organizations?.data?.available_balance : '0' }} сум</v-text>
-            </a-form-item>
+              <div class="helper-message">
+                <ErrorMessage name="account" />
+              </div>
+            </Field>
+            <VText size="12" weight="400" class="mb-2">
+              {{ $t('transactionAmount') }}
+            </VText>
+            <Field v-slot="{ errors, value }"  :model-value="form.summa" :name="$t('summa')" :rules="{ required: true }" >
+            <a-input type="number"  :placeholder="$t('sum')"  v-model:value="form.summa" :class="{ 'has-error': value.length >= organizations?.data?.available_balance.slice(0, -2).length}" />
+            <ErrorMessage :name="$t('summa')" />
+            </Field>
+            <v-text class="pt-2"><span>Можно вывести</span>: {{organizations?.data?.available_balance ? organizations?.data?.available_balance : '0' }} {{$t('summa')}}</v-text>
+
           </a-col>
           <a-col :span="12">
             <p style="padding-bottom: 8px">{{$t('name')}}</p>
             <div class="mb-5" style=" padding: 10px; border-radius: 12px; background: #F0F4F9;">
               <VText class="text-dark"> {{organizations?.data?.name}}</VText>
             </div>
-            <a-form-item>
-              <a-textarea
+            <VText size="12" weight="400" class="mb-2">
+              {{ $t('purposeOfPayment') }}
+            </VText>
+            <Field v-slot="{ errors }" :model-value="form.note" name="note" rules="required">
+            <a-textarea
+                :class="{ 'has-error': errors.length }"
                   v-model:value="form.note"
-                  :autosize="true"
-                  placeholder="Basic usage"
+                  :autosize="false"
                   :rows="4"
               />
-            </a-form-item>
+              <div class="helper-message">
+                <ErrorMessage name="note" />
+              </div>
+            </Field>
           </a-col>
         </a-row>
 
@@ -132,7 +154,7 @@ getOrganizationForSearch()
             </a-button>
           </a-col>
         </a-row>
-      </a-form>
+      </Field>
     </div>
   </a-card>
 

@@ -34,7 +34,7 @@ const columns = [
     key: "organization_account.bank.mfo",
   },
   {
-    title: t("Расчетный счет"),
+    title: t("checkingAccount"),
     dataIndex: "organization_account",
     key: "organization_account.account",
   },
@@ -185,11 +185,11 @@ const onChangePage = () => {
                 <a-tag v-show="record.status === 33" color="red" class="red">
                   {{ t("operationStatus.33") }}
                 </a-tag>
-                <a-tag
-                  v-show="record.status === 22"
-                  color="yellow"
-                  class="yellow"
-                >
+                  <a-tag
+                      v-show="record.status === 22"
+                      color="red"
+                      class="red"
+                  >
                   {{ t("operationStatus.2") }}
                 </a-tag>
                 <a-tag v-show="record.status === 7" color="green" class="green">

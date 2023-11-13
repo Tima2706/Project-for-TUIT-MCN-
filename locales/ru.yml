@@ -350,5 +350,8 @@ piece: Штук
 banking: Банкинг
 nameOfProduct: Наименование товара
 note: Примечание
-contractLocker: залок контракта
+contractLocker: Залок контракта
+purposeOfPayment: Назначение платежа
+transactionAmount: Сумма транзакции
+сanBeWithdrawn: Можно вывести
 

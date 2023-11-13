@@ -35,7 +35,7 @@ const columns = [
     key: "organization_account.bank.mfo",
   },
   {
-    title: t("Расчетный счет"),
+    title: t("checkingAccount"),
     dataIndex: "organization_account",
     key: "organization_account.account",
   },

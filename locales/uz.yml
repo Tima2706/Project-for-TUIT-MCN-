@@ -347,6 +347,11 @@ banking: Banking
 nameOfProduct: Mahsulot nomi
 note: Eslatma
 contractLocker: Garov
+purposeOfPayment: Tolovnoma tayinlash
+transactionAmount: Tranzaksiya summasi
+сanBeWithdrawn: Yechib olinishi mumkin
+
+
 
 
 

@@ -31,7 +31,7 @@ const columns = [
     key: 'organization_account.bank.mfo',
   },
   {
-    title: t('Расчетный счет'),
+    title: t('checkingAccount'),
     dataIndex: 'organization_account',
     key: 'organization_account.account',
   },
@@ -86,7 +86,7 @@ const onChangePage = () => {
               {{ record.organization_account.bank.mfo }}
             </template>
             <template v-if="column.key === 'type'">
-              {{ record.type === 10 ? $t('contractLocker'): $t('withdraw') }}
+              {{ record.type === 10 ? $t('withdraw'): $t('contractLocker') }}
             </template>
 
             <template v-if="column.key === 'organization_account.account'">
