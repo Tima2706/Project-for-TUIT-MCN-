@@ -15,7 +15,7 @@ export const organizationWuthdrawal = (id: string) => {
     return $http.get('organization-bank-accounts-search?organization_id=8e636341-d899-40ee-8819-74edec19e6fc')
 }
 export const getBlockedBalance = (params: Record<string, number>, id: string) => {
-    return $http.get('operations-search?organization_id=8e636341-d899-40ee-8819-74edec19e6fc&type[]=2&type[]=10&is_operated=null', {
+    return $http.get('operations-search?organization_id=8e636341-d899-40ee-8819-74edec19e6fc&type[]=2&type[]=10&status=0', {
         params
     })
 }
