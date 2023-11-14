@@ -53,8 +53,9 @@ const submit = async () => {
       notification.success({
         message: SAVED_SUCCESSFULLY,
       })
-      form.value = { ...DEFAULT_FILTER_DATA };
+      // form.value = { ...DEFAULT_FILTER_DATA };
       emit('changed');
+      window.location.reload();
     }
     catch (err: any) {
       notification.error({
