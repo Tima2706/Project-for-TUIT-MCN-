@@ -1,9 +1,9 @@
 import type { CookieSetOptions } from 'universal-cookie'
 import Cookies from 'universal-cookie'
-import { IS_DEV } from '~/utils/config'
+import { IS_DEV, IDENTITY_SERVICE } from '~/utils/config'
 export function useToken() {
   const cookies = new Cookies(null)
-  const TOKEN_KEY = 'auth_key'
+  const TOKEN_KEY = 'access-token'
   const setToken = (token: string, expires: number): string => {
     const options: CookieSetOptions = {
       path: '/',
@@ -18,6 +18,14 @@ export function useToken() {
     localStorage.setItem(TOKEN_KEY, token)
     return token
   }
+  const logout = () => {
+    window.location.href = `${IDENTITY_SERVICE}?returnUrl=https://rkp.dt.uz`
+  }
+
+  const gotoLogin = () => {
+    window.location.href = `${IDENTITY_SERVICE}?returnUrl=https://rkp.dt.uz`
+  }
+
 
   const getToken = (): string | null => {
     return cookies.get(TOKEN_KEY) || null
@@ -39,11 +47,14 @@ export function useToken() {
       localStorage.setItem(TOKEN_KEY, token)
   }
 
+
   return {
     setToken,
     getToken,
     removeToken,
     setTokenFromCookie,
     TOKEN_KEY,
+    logout,
+    gotoLogin,
   }
 }

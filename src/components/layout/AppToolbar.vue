@@ -10,6 +10,7 @@ import { useStorageService } from '~/modules/storage-service'
 // import {getTransactionBalance} from "~/services/transactionBalance";
 import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
+import {IS_DEV} from "~/utils/config";
 
 interface Language {
   value: string
@@ -23,8 +24,8 @@ const { $set, $get } = useStorageService()
 const organizationStore = useOrganizationStore()
 
 const router = useRouter()
-const { removeToken } = useToken()
-
+// const { removeToken } = useToken()
+const {logout, removeToken} = useToken()
 const isOpenSubMenu = ref(false)
 const menu1Ref = ref()
 const menu2Ref = ref()
@@ -72,10 +73,20 @@ const checkLanguage = () => {
 }
 checkLanguage()
 
+// const handleLogout = () => {
+//   removeToken()
+//   router.replace({ name: 'auth-login' })
+// }
 const handleLogout = () => {
-  removeToken()
-  router.replace({ name: 'auth-login' })
+  if (IS_DEV) {
+    removeToken()
+    router.replace({ name: 'auth-login' })
+    return
+  }
+
+  logout()
 }
+
 
 const mainNavActive = ref(false)
 

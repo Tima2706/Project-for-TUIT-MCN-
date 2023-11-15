@@ -12,7 +12,7 @@ import { useOrganizationStore } from '~/stores/organization'
 import { useToken } from '~/composables/useToken'
 
 const routes = setupLayouts(generatedRoutes)
-const { removeToken, getToken } = useToken()
+const {  getToken } = useToken()
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(
@@ -25,8 +25,8 @@ export const createApp = ViteSSG(
       return response
     }, (error) => {
       if (error.response.status === 401) {
-        removeToken()
-        ctx.router.replace({ name: 'auth-login' })
+        // removeToken()
+        // ctx.router.replace({ name: 'auth-login' })
       }
 
       return Promise.reject(error)
@@ -37,19 +37,18 @@ export const createApp = ViteSSG(
       .forEach((i) => {
         i.install?.(ctx)
       })
-    // const { getOrganization } = useOrganizationStore()
-    // const token = getToken()
-    // if (token) {
-      // setTokenFromCookie(token)
-      // await getOrganization().catch(() => {
-      //   // eslint-disable-next-line no-console
-      //   console.log('Token was expired')
-      //   setTimeout(() => {
-      //     ctx.router.replace({ name: 'auth-login' })
-      //     removeToken()
-      //   })
-      // })
-    // }
+    const { getOrganization } = useOrganizationStore()
+    const token = getToken()
+    if (token) {
+      await getOrganization().catch(() => {
+        // eslint-disable-next-line no-console
+        console.log('Token was expired')
+        // setTimeout(() => {
+        //   ctx.router.replace({ name: 'auth-login' })
+        //   removeToken()
+        // })
+      })
+    }
 
     // ctx.app.use(Previewer)
   },
