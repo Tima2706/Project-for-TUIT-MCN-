@@ -2,8 +2,9 @@ import axios from 'axios'
 
 import { API_BASE_URL } from '~/utils/config'
 import { useToken } from '~/composables/useToken'
-import {IDENTITY_SERVICE } from '~/utils/config'
+// import {IDENTITY_SERVICE } from '~/utils/config'
 const { getToken } = useToken()
+const { gotoLogin } = useToken()
 
 declare module 'axios' {
   export interface AxiosRequestConfig {
@@ -19,7 +20,7 @@ $http.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response.status === 401) {
-      window.location.href = `${IDENTITY_SERVICE}?returnUrl=https://rkp.dt.uz`
+      gotoLogin()
     }
     return Promise.reject(error)
   }

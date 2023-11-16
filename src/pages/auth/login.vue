@@ -14,7 +14,7 @@ const changeForm = (t: FORM_TYPE) => {
 }
 const loading = ref(true)
 
-if (!IS_DEV)
+if (IS_DEV)
   loading.value = false
 else
   gotoLogin()
