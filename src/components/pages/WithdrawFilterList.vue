@@ -44,7 +44,7 @@ const DEFAULT_FILTER_DATA = {
   summa: '',
   account: '',
   note: '',
-  from_organization: '8e636341-d899-40ee-8819-74edec19e6fc'
+  // from_organization: '8e636341-d899-40ee-8819-74edec19e6fc'
 }
 const checkBalance = (rule, value, callback) => {
   if (organization.value.data.available_balance <= value) {
