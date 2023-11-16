@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { API_BASE_URL } from '~/utils/config'
 import { useToken } from '~/composables/useToken'
-
+import {IDENTITY_SERVICE } from '~/utils/config'
 const { getToken } = useToken()
 
 declare module 'axios' {
@@ -14,10 +14,16 @@ declare module 'axios' {
 // const basicAuth = 'Basic ' + btoa(username + ':' + password)
 export const $http = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Authorization': 'bearer' + getToken(),
-  },
 })
+$http.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response.status === 401) {
+      window.location.href = `${IDENTITY_SERVICE}?returnUrl=https://rkp.dt.uz`
+    }
+    return Promise.reject(error)
+  }
+)
 
 $http.interceptors.request.use((config) => {
   const token = getToken()
