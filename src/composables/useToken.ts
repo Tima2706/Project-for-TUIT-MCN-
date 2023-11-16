@@ -19,7 +19,7 @@ export function useToken() {
     return token
   }
   const logout = () => {
-    window.location.href = `${IDENTITY_SERVICE}/auth/logout?returnUrl=https://rkp.dt.uz`
+    window.location.href = `${IDENTITY_SERVICE}/auth/logout`
   }
 
   const gotoLogin = () => {
