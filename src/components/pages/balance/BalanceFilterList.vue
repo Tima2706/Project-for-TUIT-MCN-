@@ -68,7 +68,7 @@ getOrganizationForSearch()
         <VText weight="500" size="12" class="mb-1">
           {{ $t('contractNumber') }}
         </VText>
-        <a-input style="width: 122px;" v-model:value="filterData.doc_number" :placeholder="t('-')"  type="number" />
+        <a-input style="width: 122px;" v-model:value="filterData.doc_number"   type="number" />
       </div>
       <div class="mb-3">
                 <VText weight="500" size="12" class="mb-1">
@@ -109,14 +109,14 @@ getOrganizationForSearch()
           </VText>
           <a-space>
             <a-input style="width: 122px;" v-model:value="filterData.from_summa" :placeholder="t('from')" filterData  type="number" />
-            <a-input style="width: 122px;" v-model:value="filterData.to_summa"   type="number" />
+            <a-input style="width: 122px;" v-model:value="filterData.to_summa" :placeholder="t('before')"    type="number" />
           </a-space>
         </div>
         <div class="mb-2">
           <VText weight="500" size="12" class="mb-1">
             {{ $t('note') }}
           </VText>
-          <AInput style="width: 289px" placeholder="-" v-model:value="filterData.note" />
+          <AInput style="width: 289px"  v-model:value="filterData.note" />
         </div>
       </div>
       <div  class="flex items-center gap-2">
