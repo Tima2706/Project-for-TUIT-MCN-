@@ -149,7 +149,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
         class="custom-class"
         root-class-name="root-class-name"
         :root-style="{ color: 'blue' }"
-        style="color: #000000; background: rgb(240, 244, 249)"
+        style="color: #000000; background: rgb(19,30,44)"
         :title="$t('profile')"
         placement="right"
       >
@@ -188,7 +188,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
           </div>
         </ACard>
         <div style="cursor: pointer;" class="flex justify-center mt-5"  @click="handleLogout">
-          <AButton type="primary">{{ $t("exitTheOffice") }}</AButton>
+          <AButton style="color: #FFFFFF">{{ $t("exitTheOffice") }}</AButton>
         </div>
 
       </a-drawer>
@@ -199,15 +199,18 @@ window.addEventListener('resize', updateIsOpenSubMenu)
   <!--  </div> -->
 </template>
 
-<style  lang="scss">
-.user-profile-information{
-  .ant-drawer-title{
-    font-size: 16px;
-    font-weight: 500;
-    color: red;
-    margin-bottom: 0;
+<style   lang="scss">
+.ant-drawer-header{
+  background: #FFFFFF;
+}
+.ant-drawer-close{
+  svg{
+    fill: #4A5C71;
   }
 }
+  .ant-drawer-title{
+    color: #4A5C71 !important;
+  }
 
 
 //::-webkit-scrollbar{
