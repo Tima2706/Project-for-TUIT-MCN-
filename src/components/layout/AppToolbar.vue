@@ -6,11 +6,16 @@ import AngleDownIcon from '~/assets/icons/angle-down.svg'
 import UserProfileIcon from '~/assets/icons/user-tag-line.svg'
 import { useToken } from '~/composables/useToken'
 import { useStorageService } from '~/modules/storage-service'
-// import {transactionBalance} from "~/services/dto/transcationBalance";
-// import {getTransactionBalance} from "~/services/transactionBalance";
 import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
 import {IS_DEV} from "~/utils/config";
+const open = ref<boolean>(false);
+
+
+
+const showDrawer = () => {
+  open.value = true;
+};
 
 interface Language {
   value: string
@@ -131,25 +136,87 @@ window.addEventListener('resize', updateIsOpenSubMenu)
       </div>
       <div class="dropdown-trigger-separator" />
       <div v-if="organizationStore?.organization" class="action" />
-      <a-dropdown :trigger="['click']">
+      <div @click="showDrawer">
         <p class="dropdown-trigger select-none">
           <UserProfileIcon />
           {{ organizationStore?.organization?.name }}
           <AngleDownIcon />
         </p>
-        <template #overlay>
-          <a-menu>
-            <div class="dropdown-solid-line" />
-            <a-menu-item @click="handleLogout">
-              <p>{{ $t("exitTheOffice") }}</p>
-            </a-menu-item>
-          </a-menu>
-        </template>
-      </a-dropdown>
+      </div>
+      <div class="user-profile-information">
+      <a-drawer
+        v-model:open="open"
+        class="custom-class"
+        root-class-name="root-class-name"
+        :root-style="{ color: 'blue' }"
+        style="color: #000000; background: rgb(240, 244, 249)"
+        :title="$t('profile')"
+        placement="right"
+      >
+        <ACard style="border: 1px solid #d5d3d3">
+          <div class="mb-3">
+          <VText>
+            {{$t('companyName')}}
+          </VText>
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{organizationStore?.organization?.name}}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText>
+              {{$t('fullName')}}
+            </VText>
+            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
+            {{organizationStore?.organization?.director.lastname}}    {{organizationStore?.organization?.director.firstname}} {{organizationStore?.organization?.director.middlename}}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText>
+              {{$t('numberPhone')}}
+            </VText>
+            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              +{{organizationStore?.organization?.director?.phone_number}}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText>
+              {{$t('email')}}
+            </VText>
+            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{organizationStore?.organization?.director?.email}}
+            </VText>
+          </div>
+        </ACard>
+        <div style="cursor: pointer;" class="flex justify-center mt-5"  @click="handleLogout">
+          <AButton type="primary">{{ $t("exitTheOffice") }}</AButton>
+        </div>
+
+      </a-drawer>
+      </div>
     </div>
   </DTHeader>
 
   <!--  </div> -->
 </template>
 
-<style scoped></style>
+<style  lang="scss">
+.user-profile-information{
+  .ant-drawer-title{
+    font-size: 16px;
+    font-weight: 500;
+    color: red;
+    margin-bottom: 0;
+  }
+}
+
+
+//::-webkit-scrollbar{
+//  width: 15px;
+//}
+//::-webkit-scrollbar-track{
+//  background: #FFFFFF;
+//}
+//::-webkit-scrollbar-thumb{
+//  background: #616a80;
+//}
+</style>
