@@ -201,7 +201,7 @@ operationTypes:
   TYPE_CONTRACT_PRICE_DEPOSIT: Kontrakt depoziti uchun to'lov
 hideAmount: Miqdorni yashirish
 operationStatus:
-  1: Kleringga jo'natildi
+  1: Kliringga jo'natildi
   2: Bankka jo'natildi
   3: Xisob raqamiga o'tkazildi
   4: To'landi
@@ -345,7 +345,7 @@ throughClearing: Tozalash orqali
 piece: Dona
 banking: Banking
 nameOfProduct: Mahsulot nomi
-note: Eslatma
+note: Qaydlar
 contractLocker: Garov
 purposeOfPayment: Tolovnoma tayinlash
 transactionAmount: Tranzaksiya summasi

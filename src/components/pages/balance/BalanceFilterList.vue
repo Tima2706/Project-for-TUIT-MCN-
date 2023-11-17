@@ -51,10 +51,12 @@ const onSearch = (input: string) => {
 }
 
 const submit = () => {
+  // filterData.value.from_date = dayjs(filterData.value.from_date).format('YYYY-MM-DD')
+  // filterData.value.to_date = dayjs(filterData.value.from_date).format('YYYY-MM-DD')
+
   emit('changed', {
     ...filterData.value,
   })
-  console.log(filterData.value)
 }
 getOrganizationForSearch()
 </script>
@@ -114,7 +116,7 @@ getOrganizationForSearch()
           <VText weight="500" size="12" class="mb-1">
             {{ $t('note') }}
           </VText>
-          <AInput style="width: 289px" placeholder="-" v-model:value="filterData.node" />
+          <AInput style="width: 289px" placeholder="-" v-model:value="filterData.note" />
         </div>
       </div>
       <div  class="flex items-center gap-2">

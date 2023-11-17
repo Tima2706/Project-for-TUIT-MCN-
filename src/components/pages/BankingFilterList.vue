@@ -115,7 +115,7 @@ getOrganizationForSearch()
           <VText weight="500" size="12" class="mb-1">
             {{ $t('note') }}
           </VText>
-          <AInput style="width: 289px" placeholder="-" v-model:value="filterData.node" />
+          <AInput style="width: 289px" placeholder="-" v-model:value="filterData.note" />
         </div>
       </div>
       <div  class="flex items-center gap-2">

@@ -2,6 +2,7 @@ import axios from 'axios'
 
 import { API_BASE_URL } from '~/utils/config'
 import { useToken } from '~/composables/useToken'
+import { IS_DEV } from '~/utils/config'
 // import {IDENTITY_SERVICE } from '~/utils/config'
 const { getToken } = useToken()
 const { gotoLogin } = useToken()
@@ -20,7 +21,10 @@ $http.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response.status === 401) {
-      gotoLogin()
+      if (!IS_DEV) {
+        gotoLogin()
+
+      }
     }
     return Promise.reject(error)
   }

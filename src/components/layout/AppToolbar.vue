@@ -83,7 +83,6 @@ const handleLogout = () => {
     router.replace({ name: 'auth-login' })
     return
   }
-
   logout()
 }
 

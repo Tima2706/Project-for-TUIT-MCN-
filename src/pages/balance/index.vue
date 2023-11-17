@@ -58,8 +58,7 @@ const params = reactive({
 
 const { data: transactionBalance, loading: transactionBalanceLoading } = useFetchData<TransactionBalance>(async () => {
   const { data } = await getTransactionBalance()
-
-  return {data}
+  return {data: data.data}
 }, { immediately: true })
 
 const { data: operations, loading: operationsLoading, fetch } = useFetchData<any[]>(async () => {
