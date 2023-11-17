@@ -10,7 +10,7 @@ import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
 import {IS_DEV} from "~/utils/config";
 const open = ref<boolean>(false);
-
+import { API_FILE_URL } from '~/utils/config'
 
 
 const showDrawer = () => {
@@ -184,6 +184,22 @@ window.addEventListener('resize', updateIsOpenSubMenu)
             </VText>
             <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
               {{organizationStore?.organization?.director?.email}}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText>
+              {{$t('address')}}
+            </VText>
+            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{organizationStore?.organization?.address}}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText>
+              {{$t('website')}}
+            </VText>
+            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{organizationStore?.organization?.website}}
             </VText>
           </div>
         </ACard>
