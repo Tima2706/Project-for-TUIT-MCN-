@@ -6,13 +6,7 @@ import {notification} from "ant-design-vue";
 import {useServerError} from '~/services/useServerError'
 import {DEFAULT_ERROR_MESSAGE, SAVED_SUCCESSFULLY} from '~/utils/constants'
 import {ErrorMessage, Field, Form, configure} from 'vee-validate'
-// import {defineRule} from "vee-validate";
-// defineRule('required', (value) => {
-//   if (!value || !value.length) {
-//     return false;
-//   }
-//   return !!String(value).trim().length;
-// });
+import {getUserInfo} from "~/services/userInformation";
 
 
 const {t} = useI18n()
@@ -44,7 +38,6 @@ const DEFAULT_FILTER_DATA = {
   summa: '',
   account: '',
   note: '',
-  // from_organization: '8e636341-d899-40ee-8819-74edec19e6fc'
 }
 const checkBalance = (rule, value, callback) => {
   if (organization.value.data.available_balance <= value) {
@@ -60,6 +53,7 @@ const getOrganizationForSearch = async () => {
   const {data: data} = await organizationWuthdrawal()
   organizations.value = {data}
 }
+
 const submit = async () => {
   try {
     await postOrganizationWithdrawal({...form.value})

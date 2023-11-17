@@ -3,6 +3,7 @@
 export const IS_DEV = !!import.meta.env.DEV
 
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+export const API_USER_URL = import.meta.env.VITE_API_USER_URL
 
 export const API_FILE_URL = import.meta.env.VITE_API_FILE_URL
 
