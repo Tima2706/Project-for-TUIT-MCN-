@@ -35,36 +35,7 @@ const navigations: {
     access: true,
     to: { name: 'balance' },
   },
-  {
-    title: t('banking'),
-    icon: AcceptBasket,
-    access: true,
-    to: { name: 'banking' },
-  },
-  {
-    title: t('withdraw'),
-    icon: Withdraw,
-    access: true,
-    to: { name: 'withdraw' },
-  },
-  {
-    title: t('blockedDeposit'),
-    icon: Blocked,
-    access: true,
-    to: { name: 'blockedDeposit' },
-  },
-  {
-    title: t('erroneousTransactions'),
-    icon: ErrorTransaction,
-    access: true,
-    to: { name: 'erroneousTransactions' },
-  },
-   {
-    title: t('expenses'),
-    icon: Expenses,
-    access: true,
-    to: { name: 'expenses' },
-  },
+
 
 ]
 </script>
