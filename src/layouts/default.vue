@@ -35,8 +35,60 @@ const navigations: {
     access: true,
     to: { name: 'balance' },
   },
-
-
+  {
+    title: t('home'),
+    icon: Balance,
+    access: true,
+    to: { name: 'home' },
+  },
+  {
+    title: t('tasks'),
+    icon: Balance,
+    access: true,
+    to: { name: 'tasks' },
+  },
+  {
+    title: t('projects'),
+    icon: Balance,
+    access: true,
+    to: { name: 'projects' },
+  },
+  {
+    title: t('teams'),
+    icon: Balance,
+    access: true,
+    to: { name: 'teams' },
+  },
+  {
+    title: t('users'),
+    icon: Balance,
+    access: true,
+    to: { name: 'users' },
+  },
+  {
+    title: t('roles'),
+    icon: Balance,
+    access: true,
+    to: { name: 'roles' },
+  },
+  {
+    title: t('companies'),
+    icon: Balance,
+    access: true,
+    to: { name: 'companies' },
+  },
+  {
+    title: t('offices'),
+    icon: Balance,
+    access: true,
+    to: { name: 'offices' },
+  },
+  {
+    title: t('departments'),
+    icon: Balance,
+    access: true,
+    to: { name: 'departments' },
+  },
 ]
 </script>
 
@@ -58,10 +110,9 @@ const navigations: {
     <a-layout>
       <a-layout-sider :collapsed-width="0" :collapsed="collapsed" width="268px">
         <div class="sidebar">
-          <div class="sidebar__header">
-            <BankLogo />
+          <div class="sidebar__header ">
             <p class="sidebar__title">
-              {{ $t("RKP") }}
+              {{ $t("DTM") }}
             </p>
           </div>
           <AppNavigation :items="navigations" />
