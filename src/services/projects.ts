@@ -11,6 +11,6 @@ export const deleteProjectId = (id: string) => {
 export const createProject = async (form: any) => {
     return await $http.post("/projects", form);
 };
-export const updateProject = async (id: string, form: any) => {
-    return await $http.put(`/projects/${id}`, form);
+export const updateProject = async ( form: any) => {
+    return await $http.put(`/projects`, form);
 };

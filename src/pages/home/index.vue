@@ -1,22 +1,23 @@
 <template>
   <div class="main" style="height: 100vh">
+    <div class="flex justify-between">
     <div >
-      <div >
-        <div >
           <h1 style="font-size: 24px; font-weight: 500">
 <!--            {{weatherData?.weather[0]?.main}} {{temperatureCelsius?.slice(0,2)}} °C-->
           </h1>
           <p class="nd_p_text120">{{ hours }}:{{ minutes }}</p>
 <!--          <MotivationList />-->
         </div>
+      <div class="flex gap-14 m-3">
+      <HomeNodes/>
+    <HomeTaskList/>
       </div>
-<!--      <HomeNodes/>-->
-<!--    <HomeTaskList/>-->
     </div>
+
   </div>
 </template>
 
-<script setup>
+<script  setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import axios from 'axios';
 import HomeModes from "~/components/pages/home/HomeNodes.vue";
@@ -29,7 +30,6 @@ const minutes = ref(new Date().getMinutes());
 const seconds = ref(new Date().getSeconds());
 const weatherData = ref('');
 const temperatureCelsius = ref(0);
-const moteList = ref([]);
 
 const checkSingleDigit = (digit) => ('0' + digit).slice(-2);
 
@@ -41,7 +41,6 @@ const setTime = () => {
     seconds.value = checkSingleDigit(date.getSeconds());
   }, 1000);
 };
-
 const getWeather = () => {
   const apiKey = '895284fb2d2c50a520ea537456963d9c';
   const input = 'Tashkent';

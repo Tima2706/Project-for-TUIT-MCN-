@@ -55,10 +55,9 @@ const columns = [
     key: 'projectType',
   },
   {
-    title: '',
+    title: 'action',
     dataIndex: 'action',
     key: 'action',
-    width: '50%',
     width: '5%',
   },
 ]
@@ -161,7 +160,7 @@ const openFormDialog = (item: any) => {
           {{  1 }}
         </div>
         <div  v-if="column.dataIndex === 'team'">
-          {{ record.group.name }}
+          {{ record?.group?.name }}
         </div>
         <div  v-if="column.dataIndex === 'manager'">
           {{ record.manager.lastName }}  {{ record.manager.firstName }}  {{ record.manager.middleName }}

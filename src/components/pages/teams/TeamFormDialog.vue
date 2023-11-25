@@ -232,10 +232,10 @@ const handleParams = (type, val) => {
                   </ASelectOption>
                 </a-select>
 
-              <div class="nd_teams_info_item" v-for="(item, index) in employees">
-                <div class="d-flex align-items-center" style="width: 65%">
+              <div   class="nd_teams_info_item" v-for="(item, index) in employees">
+                <div  class="d-flex align-items-center" style="width: 65%">
                   <div class="align-items-center d-flex">
-                    <div style="transform: translate3d(-20px, 15px, 0)"
+                    <div  style="transform: translate3d(-20px, 15px, 0)"
                          class="custom-control custom-checkbox m-auto nd_control_check">
                       <input
                           type="checkbox"

@@ -9,24 +9,18 @@ import {
 } from '~/services/projects'
 import { API_FILE_URL } from '~/utils/config'
 import {getEmployee} from "~/services/employees";
-
+import {getTeamList} from "~/services/teamsDTM";
+import dayjs from "dayjs";
 const props = defineProps<{ attributeId: string }>()
 
 const emits = defineEmits<ProductsEmitsType>()
 const employees = ref<any>([])
+const group = ref<any>([])
+
 const { t } = useI18n()
-const checkboxAllChecked = ref(false)
 const { getFieldErrors } = useServerError()
 const params = ref({
-  page: 0,
-  perPage: 20,
-  sortBy: 'id',
-  sortDirection: 'desc',
-  allSearch: null,
-  groupId: null,
-  managerId: null,
-  projectKanban: null,
-  projectTrello: null,
+  organizationId: null,
 })
 const employee = ref({
   isManager: true
@@ -38,12 +32,12 @@ interface ProductsEmitsType {
 const FORM = {
   name: '',
   codeName: '',
-  projectType: '',
+  projectType: 'KANBAN',
   group: {
-    id: 0
+    id: null
   },
   manager: {
-    id: 0
+    id: null
   },
   uuid: null,
   deadLine: null
@@ -54,7 +48,7 @@ const submitLoading = ref(false)
 const formRef = ref()
 const form = ref<any>({ ...FORM })
 const images = ref<Array<{ url: string }>>([])
-
+const formNew = ref('')
 const IMAGE_URL = computed(() => API_FILE_URL)
 
 const fetchData = async () => {
@@ -70,8 +64,6 @@ const fetchData = async () => {
     } = await getEmployee(reqParams)
 
     employees.value = data
-    // measure.value = items
-    // total.value = meta?.totalItems || 0
   }
   catch (err) {
     console.error(err)
@@ -80,7 +72,27 @@ const fetchData = async () => {
     spinning.value = false
   }
 }
+const getGroup = async () => {
+  spinning.value = true
+  const reqParams: Record<string, any> = {
+    ...params.value,
+  }
+  if (reqParams.status === 'All')
+    reqParams.status = null
+  try {
+    const {
+      data: { data},
+    } = await getTeamList(reqParams)
 
+    group.value = data
+  }
+  catch (err) {
+    console.error(err)
+  }
+  finally {
+    spinning.value = false
+  }
+}
 
 watch(visible, (val) => {
   if (!val) {
@@ -94,13 +106,15 @@ watch(visible, (val) => {
 })
 const submit = async () => {
   const validate = await formRef.value.validate()
+  const deadLine = dayjs(form.value.deadLine).format('YYYY-MM-DD')
+
   if (validate && validate.valid) {
     submitLoading.value = true
     const { id } = form.value
     try {
       if (id)
-        await updateProject(id, { ...form.value })
-      else await createProject({ ...form.value })
+        await updateProject( { ...form.value, deadLine })
+      else await createProject({ ...form.value, deadLine })
 
       notification.success({
         message: t('successfully'),
@@ -122,30 +136,22 @@ const submit = async () => {
 const close = () => {
   visible.value = false
 }
-const toggleCheckboxAll = () => {
-  form.value.userIds = checkboxAllChecked ? employees.value.map(item => {
-    return {
-      id: item.id,
-      firstName: item.firstName,
-      lastName: item.lastName,
-      middleName: item.middleName
-    }
-  }) : [];
-};
 const getCheckedEmployeesOptions = computed(() => {
   return employees.value
-      // .filter((employee) => (form.value.userIds || []).includes(employee.id))
-      .filter((employee) => form.value?.userIds?.some((user) => user.id === employee.id))
       .map((employee) => ({lastName:employee.lastName , label: employee.firstName, value: employee.id , role: employee.roles.map(item => item.roleName)}));
 });
 const open = (item: any) => {
   if (item) {
     form.value = {
       name: item.name,
-      organizationId: item.organizationId,
-      userIds: item.userIds,
-      watcher: item.watcher,
       id: item.id,
+      codeName: item.codeName,
+      projectType: item.projectType,
+      group: item.group,
+      manager: item.manager,
+      uuid: item.uuid,
+      deadLine: item.deadLine ? dayjs(item.deadLine) : null
+
     }
 
     if (item.icon)
@@ -154,25 +160,9 @@ const open = (item: any) => {
   visible.value = true
 }
 fetchData()
+getGroup()
 defineExpose({ open })
-const handleParams = (type, val) => {
-  switch (type) {
-    case 'search':
-      params.value.allSearch = val ? val : null;
-      break;
 
-    case 'page':
-      params.value.page= val - 1;
-      break;
-  }
-
-  if (type !== 'page') {
-    params.value.page = 0;
-  }
-  fetchData()
-
-  // this.getUserAll();
-};
 
 </script>
 
@@ -196,7 +186,7 @@ const handleParams = (type, val) => {
                 <Field
                   v-slot="{ errors }"
                   :model-value="form.name"
-                  name="name_ru"
+                  name="name"
                   rules="required"
                 >
                   <AInput
@@ -205,29 +195,47 @@ const handleParams = (type, val) => {
                     :class="{ 'has-error': errors.length }"
                   />
                   <div class="helper-message">
-                    <ErrorMessage name="name_ru" />
+                    <ErrorMessage name="name" />
                   </div>
                 </Field>
-
-                <AInput
-                    :placeholder="$t('name')"
-                    label-class="d-none"
-                    :value="params.allSearch"
-                    @update:value="handleParams('search', $event)"
-                />
+                <Field
+                  v-slot="{ errors }"
+                  :model-value="form.codeName"
+                  name="code_Name"
+                  rules="required"
+                >
+                  <AInput
+                    :placeholder="$t('codeName')"
+                    v-model:value="form.codeName"
+                    :class="{ 'has-error': errors.length }"
+                  />
+                  <div class="helper-message">
+                    <ErrorMessage name="code_Name" />
+                  </div>
+                </Field>
                 <a-select
-                    v-model:value="form.leaderId"
+                  v-model:value="form.group.id"
+                  class="mb-4"
+                  :options="group"
+                  :field-names="{label: 'name', value: 'id'}"
+                  style="width: 100%"
+                  placeholder="select Team"
+               />
+                <a-select
+                    v-model:value="form.manager.id"
                     style="width: 100%"
-                    :field-names="{ label: 'label', value: 'value' }"
-                    placeholder="Select team leader"
+                    placeholder="select Manager"
                 >
                   <ASelectOption
                       v-for="item in getCheckedEmployeesOptions"
                       :key="item.value"
-                      :value="item.label + ' ' + item.lastName"
+                      :value="item.id"
                   >
+                    {{item.label + ' ' + item.lastName}}
                   </ASelectOption>
                 </a-select>
+                <VText>Deadline</VText>
+                <a-date-picker v-model:value="form.deadLine" />
               </div>
             </div>
         </ACol>

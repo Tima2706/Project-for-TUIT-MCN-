@@ -67,7 +67,6 @@ const loadData = async () => {
     const {
       data: { data },
     } = await getTeamList({ ...params.value, ...filter.value })
-    // totalItems.value = meta.totalItems
     teams.value = data
   }
   catch (e) {
