@@ -3,5 +3,5 @@
 </template>
 
 <route lang="yaml">
-redirect: balance
+redirect: home
 </route>

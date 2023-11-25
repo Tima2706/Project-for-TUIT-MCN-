@@ -30,12 +30,6 @@ const navigations: {
   to: RouteLocationRaw
 }[] = [
   {
-    title: t('balance'),
-    icon: Balance,
-    access: true,
-    to: { name: 'balance' },
-  },
-  {
     title: t('home'),
     icon: Balance,
     access: true,
@@ -59,36 +53,36 @@ const navigations: {
     access: true,
     to: { name: 'teams' },
   },
-  {
-    title: t('users'),
-    icon: Balance,
-    access: true,
-    to: { name: 'users' },
-  },
-  {
-    title: t('roles'),
-    icon: Balance,
-    access: true,
-    to: { name: 'roles' },
-  },
-  {
-    title: t('companies'),
-    icon: Balance,
-    access: true,
-    to: { name: 'companies' },
-  },
-  {
-    title: t('offices'),
-    icon: Balance,
-    access: true,
-    to: { name: 'offices' },
-  },
-  {
-    title: t('departments'),
-    icon: Balance,
-    access: true,
-    to: { name: 'departments' },
-  },
+  // {
+  //   title: t('users'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'users' },
+  // },
+  // {
+  //   title: t('roles'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'roles' },
+  // },
+  // {
+  //   title: t('companies'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'companies' },
+  // },
+  // {
+  //   title: t('offices'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'offices' },
+  // },
+  // {
+  //   title: t('departments'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'departments' },
+  // },
 ]
 </script>
 

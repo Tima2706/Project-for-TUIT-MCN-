@@ -11,26 +11,26 @@ defineEmits(['handleClickCreate', 'handleFilter'])
 <template>
   <a-card style="width: 100%">
     <h3 class="page-title py-3 pl-2 font-semibold text-lg">
-      {{ $t("teams") }}
+      {{ $t("projects") }}
     </h3>
     <div class="flex">
       <div  class="px-2">
         <AButton
-          type="primary"
-          size="large"
-          class="team-create-btn"
-          @click="$emit('handleClickCreate')"
+            type="primary"
+            size="large"
+            class="team-create-btn"
+            @click="$emit('handleClickCreate')"
         >
           <PlusIcon />
-          {{ $t("addUsers") }}
+          {{ $t("add") }}
         </AButton>
       </div>
       <div class="px-2" style="width: 390px">
         <AInput
-          placeholder="Поиск"
-          class="team-search-input"
-          allow-clear
-          @input="$emit('handleFilter')"
+            placeholder="Поиск"
+            class="team-search-input"
+            allow-clear
+            @input="$emit('handleFilter')"
 
         >
           <template #suffix>
