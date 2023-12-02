@@ -1,4 +1,13 @@
 RKP: RKP
+Smoke: Smoke,
+Mist: Mist,
+Rain: Rain,
+Sun: Sun,
+Сlear: Clear,
+Clouds: Clouds,
+Thunderstorm: Thunderstorm,
+Snow: Snow,
+Drizzle: Drizzle,
 teams: Teams
 reset: Reset
 erroneousTransactions: Erroneous transactions
@@ -11,7 +20,7 @@ decrease: In descending order of price
 moderation: Moderation
 lists: Lists
 seller: Seller
-success: Success
+sunpmccess: Success
 successDeleted: Successfully Deleted
 products: Products
 contractLocker: Contract locker

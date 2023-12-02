@@ -36,53 +36,27 @@ const navigations: {
     to: { name: 'home' },
   },
   {
-    title: t('tasks'),
+    title: t('lecture'),
     icon: Balance,
     access: true,
-    to: { name: 'tasks' },
+    to: { name: 'lecture' },
   },
   {
-    title: t('projects'),
+    title: t('practice'),
     icon: Balance,
     access: true,
-    to: { name: 'projects' },
+    to: { name: 'practice' },
   },
   {
-    title: t('teams'),
+    title: t('videoСourses'),
     icon: Balance,
     access: true,
-    to: { name: 'teams' },
+    to: { name: 'videoСourses' },
   },
-  // {
-  //   title: t('users'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'users' },
-  // },
-  // {
-  //   title: t('roles'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'roles' },
-  // },
-  // {
-  //   title: t('companies'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'companies' },
-  // },
-  // {
-  //   title: t('offices'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'offices' },
-  // },
-  // {
-  //   title: t('departments'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'departments' },
-  // },
+
+
+
+
 ]
 </script>
 
@@ -116,7 +90,6 @@ const navigations: {
         <RouterView />
       </a-layout-content>
     </a-layout>
-<!--  </a-layout>-->
     </div>
 </template>
 

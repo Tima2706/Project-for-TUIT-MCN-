@@ -1,14 +1,14 @@
 <template>
-  <div class="main" style="height: 100vh">
+  <div class="main" style="height: 100vh; padding: 20px">
     <div class="flex justify-between">
-    <div >
-          <h1 style="font-size: 24px; font-weight: 500">
-<!--            {{weatherData?.weather[0]?.main}} {{temperatureCelsius?.slice(0,2)}} °C-->
+    <div class="main-time">
+          <h1 style="font-size: 42px; font-weight: 500; color: #FFF;">
+            {{ $t(`${weatherData?.weather?.map(item => item?.main).join(' ')}`)}} {{temperatureCelsius?.slice(0,2)}} °C
           </h1>
-          <p class="nd_p_text120">{{ hours }}:{{ minutes }}</p>
-<!--          <MotivationList />-->
+          <h1 style="color: #FFFFFF; font-size: 64px" class="nd_p_text120">{{ hours }}:{{ minutes }}:{{seconds}}</h1>
+      <h1 style="color: #FFFFFF; font-size: 24px; text-align: end; font-weight: 500"><span style="border-radius: 6px; padding: 3px 6px; background: #eeee27">{{year}}:{{month + 1}}:{{day}}</span></h1>
         </div>
-      <div class="flex gap-14 m-3">
+      <div class="flex gap-14">
       <HomeNodes/>
     <HomeTaskList/>
       </div>
@@ -28,8 +28,11 @@ const color = 'red';
 const hours = ref(new Date().getHours());
 const minutes = ref(new Date().getMinutes());
 const seconds = ref(new Date().getSeconds());
+const year = ref(new Date().getFullYear())
+const month = ref(new Date().getMonth())
+const day = ref(new Date().getDate())
 const weatherData = ref('');
-const temperatureCelsius = ref(0);
+const temperatureCelsius = ref(null);
 
 const checkSingleDigit = (digit) => ('0' + digit).slice(-2);
 
@@ -71,5 +74,15 @@ onMounted(() => {
   z-index: 0;
   position: relative;
   overflow-x: hidden;
+  &-time{
+    width: 35%;
+    border-radius: 6px;
+    background: rgba(23, 31, 38, 0.20);
+    backdrop-filter: blur(20px);
+    height: 100%;
+    max-height: 400px;
+    padding: 20px;
+  }
 }
+
 </style>

@@ -28,7 +28,6 @@ declare module '@vue/runtime-core' {
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     AppNavigation: typeof import('./components/layout/AppNavigation.vue')['default']
     AppToolbar: typeof import('./components/layout/AppToolbar.vue')['default']
-    ARangePicker: typeof import('ant-design-vue/es')['RangePicker']
     ARow: typeof import('ant-design-vue/es')['Row']
     ASelect: typeof import('ant-design-vue/es')['Select']
     ASelectOption: typeof import('ant-design-vue/es')['SelectOption']

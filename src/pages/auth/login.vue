@@ -48,8 +48,8 @@ const onNeedToRegister = (tin: string) => {
       </a-col>
     </a-row>
     <TransitionSlide mode="out-in">
-      <AuthLoginWithKey v-if="isLoginWithKeyFormActive" @need-to-register="onNeedToRegister" @success="onSuccessLogin" />
-      <AuthLoginWithLoginAndPassword v-else @success="onSuccessLogin" />
+<!--      <AuthLoginWithKey v-if="isLoginWithKeyFormActive" @need-to-register="onNeedToRegister" @success="onSuccessLogin" />-->
+      <AuthLoginWithLoginAndPassword @success="onSuccessLogin" />
     </TransitionSlide>
   </div>
 </template>
