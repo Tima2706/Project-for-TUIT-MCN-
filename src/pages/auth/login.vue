@@ -14,6 +14,9 @@ const changeForm = (t: FORM_TYPE) => {
 }
 const loading = ref(true)
 
+if (!getOrganization) {
+
+}
 if (IS_DEV)
   loading.value = false
 else

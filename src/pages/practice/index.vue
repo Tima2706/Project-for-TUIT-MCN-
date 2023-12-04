@@ -7,6 +7,8 @@ import { useRoute, useRouter } from 'vue-router'
 import TrashIcon from '~/assets/icons/trash-line.svg'
 import SearchIcon from "~/assets/icons/search-line.svg";
 
+
+
 import {
   getProjectList,
   deleteProjectId
@@ -18,6 +20,9 @@ const projects = ref<any[]>()
 import PlusIcon from "~/assets/icons/plus-fill.svg";
 import {API_FILE_URL} from "~/utils/config";
 import HashtagIcon from "~/assets/icons/hashtag.svg";
+import {useStorageService} from "~/modules/storage-service";
+const { $set, $get } = useStorageService()
+const organizationStore = useOrganizationStore()
 
 const { t } = useI18n()
 
@@ -143,10 +148,12 @@ const openFormDialog = (item: any) => {
   <div style="padding: 16px">
     <h3 class="page-title font-semibold text-lg">
       {{ $t("practice") }}
+
     </h3>
     <ACard class="flex justify-between" >
       <div class="flex items-center ">
         <AButton
+          v-if="organizationStore?.organization?.username === 'admin'"
           type="primary"
           class="flex items-center mr-4"
           @click="$refs.ProjectFormDialogRef.open()"
@@ -191,6 +198,7 @@ const openFormDialog = (item: any) => {
             </AButton>
 
             <a-popconfirm
+              v-if="organizationStore?.organization?.username === 'admin'"
               :title="$t('confirmDelete')"
               :ok-text="$t('yes')"
               :cancel-text="$t('no')"

@@ -30,6 +30,8 @@ export function useToken() {
     cookies.remove(TOKEN_KEY, options)
   }
 
+
+
   return {
     setToken,
     getToken,

@@ -17,20 +17,6 @@ import {isAxiosError} from "axios/index";
 import {notification} from "ant-design-vue";
 
 const loading = ref(false)
-const profile = ref([])
-const loadData = async () => {
-  loading.value = true
-  try {
-    const {data: data} = await getUserInfo()
-    profile.value = data
-  }
-  catch (e) {
-    console.log(e)
-  }
-  finally {
-    loading.value = false
-  }
-}
 
 
 const showDrawer = () => {
@@ -49,7 +35,6 @@ const { $set, $get } = useStorageService()
 const organizationStore = useOrganizationStore()
 
 const router = useRouter()
-// const { removeToken } = useToken()
 const {logout, removeToken} = useToken()
 const isOpenSubMenu = ref(false)
 const menu1Ref = ref()
@@ -97,7 +82,6 @@ const checkLanguage = () => {
   }
 }
 checkLanguage()
-loadData()
 const handleLogout = () => {
   if (IS_DEV) {
     removeToken()
@@ -162,7 +146,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
       <div @click="showDrawer">
         <p class="dropdown-trigger select-none">
           <UserProfileIcon />
-          {{ profile.username }}
+          {{ organizationStore?.organization.username }}
           <AngleDownIcon />
         </p>
       </div>
@@ -182,7 +166,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
             {{$t('username')}}
           </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{profile.username}}
+              {{organizationStore?.organization.username}}
             </VText>
           </div>
           <div class="mb-3">
@@ -190,7 +174,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
               {{$t('firstname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{profile.firstname}}
+              {{organizationStore?.organization.firstname}}
             </VText>
           </div>
           <div class="mb-3">
@@ -198,7 +182,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
               {{$t('lastname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{profile.lastname}}
+              {{organizationStore?.organization.lastname}}
             </VText>
           </div>
 

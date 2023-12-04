@@ -46,7 +46,7 @@ const navigations: {
     title: t('videoСourses'),
     icon: Balance,
     access: true,
-    to: { name: 'videoСourses' },
+    to: { name: 'videocourses' },
   },
 
 

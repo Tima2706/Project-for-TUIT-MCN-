@@ -111,7 +111,7 @@ defineExpose({open})
     :title="
       form.id
         ? `Edit`
-        : `${$t('add')} ${$t('project')}`
+        : `${$t('add')} ${$t('Практику')}`
     "
     width="600px"
     :footer="false"
@@ -119,30 +119,27 @@ defineExpose({open})
     <Form ref="formRef">
       <ARow :gutter="[8, 0]">
         <ACol :span="24">
-          <div class="flex">
-            <div style="width: 50%;" class="pr-4">
-              <VText class="pb-3">{{ $t('title') }}</VText>
+            <div  class="pr-4">
+              <VText class="pb-3">{{ $t('subject') }}</VText>
 
               <AInput
                 :placeholder="$t('name')"
                 v-model:value="form.title"
               />
 
-              <VText class="pb-3">{{ $t('value') }}</VText>
-              <a-upload
-                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              <a-upload class="my-4" style="display: flex; justify-content: end; align-items: center"
+                accept=".doc,.docx, ppt, pptx, .xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 @change="handleFileUpload"
                 :status="status"
                 :max-count="1"
                 v-model:file-list="fileList"
               >
-                <a-button>
+                <a-button type="primary">
                   <upload-outlined></upload-outlined>
                   Upload
                 </a-button>
               </a-upload>
             </div>
-          </div>
         </ACol>
       </ARow>
       <ADivider class="my-2"/>

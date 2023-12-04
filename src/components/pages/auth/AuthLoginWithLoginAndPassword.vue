@@ -9,8 +9,8 @@ const emits = defineEmits(['success'])
 const FormRef = ref()
 
 const userCredential = ref<LoginRequest>({
-  username: 'admin',
-  password: 'password',
+  username: '',
+  password: '',
 })
 
 const loading = ref(false)

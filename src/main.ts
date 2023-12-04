@@ -25,7 +25,7 @@ export const createApp = ViteSSG(
     }, (error) => {
       if (error.response.status === 401) {
         // removeToken()
-        // ctx.router.replace({ name: 'auth-login' })
+        ctx.router.replace({ name: 'auth-login' })
       }
 
       return Promise.reject(error)

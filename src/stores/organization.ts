@@ -8,7 +8,7 @@ export const useOrganizationStore = defineStore('organization', () => {
 
   const getOrganization = async () => {
     const { data } = await getUserInfo()
-    organization.value = data.organization
+    organization.value = data
     permissions.value = data.permissions
   }
 

@@ -9,8 +9,8 @@ const emits = defineEmits(['success'])
 const FormRef = ref()
 
 const userCredential = ref<RegisterRequest>({
-  username: 'admin',
-  password: 'password',
+  username: '',
+  password: '',
   firstname: '',
   lastname: ''
 })
@@ -47,18 +47,18 @@ const submit = async () => {
         <div class="form-control">
           <div class="form-control">
             <Field v-slot="{ errors }" :model-value="userCredential.firstname" name="firstname" rules="required">
-              <AInput v-model:value="userCredential.firstname" class="login-input" :class="[{ 'has-error': errors.length }] "  placeholder="FirstName" size="large" />
+              <AInput v-model:value="userCredential.firstname" class="login-input" :class="[{ 'has-error': errors.length }] "  placeholder="firstname" size="large" />
               <ErrorMessage name="firstname" />
             </Field>
           </div>
           <div class="form-control">
             <Field v-slot="{ errors }" :model-value="userCredential.lastname" name="password" rules="required">
-              <AInput v-model:value="userCredential.lastname" class="login-input" :class="[{ 'has-error': errors.length }] " type="password" placeholder="LastName" size="large" />
+              <AInput v-model:value="userCredential.lastname" class="login-input" :class="[{ 'has-error': errors.length }] " type="password" placeholder="lastname" size="large" />
               <ErrorMessage name="password" />
             </Field>
           </div>
           <Field v-slot="{ errors }" :model-value="userCredential.username" name="username" rules="required">
-            <AInput v-model:value="userCredential.username" :class="{ 'has-error': errors.length }" />
+            <AInput placeholder="username" v-model:value="userCredential.username" :class="{ 'has-error': errors.length }" />
             <ErrorMessage name="username" />
           </Field>
         </div>

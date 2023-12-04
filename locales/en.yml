@@ -1,13 +1,18 @@
 RKP: RKP
-Smoke: Smoke,
-Mist: Mist,
-Rain: Rain,
-Sun: Sun,
-Сlear: Clear,
-Clouds: Clouds,
-Thunderstorm: Thunderstorm,
-Snow: Snow,
-Drizzle: Drizzle,
+lecture: Lecture
+subject: subject
+practice: Practice
+home: Home
+videoСourses: Video courses
+Smoke: Smoke
+Mist: Mist
+Rain: Rain
+Sun: Sun
+Сlear: Clear
+Clouds: Clouds
+Thunderstorm: Thunderstorm
+Snow: Snow
+Drizzle: Drizzle
 teams: Teams
 reset: Reset
 erroneousTransactions: Erroneous transactions
