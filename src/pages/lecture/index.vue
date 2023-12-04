@@ -2,22 +2,22 @@
 import { useI18n } from 'vue-i18n'
 import { notification } from 'ant-design-vue'
 import { isAxiosError } from 'axios'
-import { computed, ref } from 'vue'
+import {  ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import PenIcon from '~/assets/icons/pen-line.svg'
 import TrashIcon from '~/assets/icons/trash-line.svg'
+import SearchIcon from "~/assets/icons/search-line.svg";
+import HashtagIcon from '~/assets/icons/hashtag.svg'
+import { API_FILE_URL } from '~/utils/config'
+
 import {
   getProjectList,
   deleteProjectId
 } from '~/services/projects'
-import { API_FILE_URL } from '~/utils/config'
-import { PERMISSIONS } from '~/utils/constants'
-import { useAccess } from '~/composables/useAccess'
 const router = useRouter()
 const route = useRoute()
 const loading = ref(false)
-const { hasAccess } = useAccess()
 const projects = ref<any[]>()
+import PlusIcon from "~/assets/icons/plus-fill.svg";
 
 const { t } = useI18n()
 
@@ -30,29 +30,9 @@ const columns = [
 
   },
   {
-    title: t('name'),
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: t('team'),
-    dataIndex: 'team',
-    key: 'team',
-  },
-  {
-    title: t('manager'),
-    dataIndex: 'manager',
-    key: 'manager',
-  },
-  {
-    title: t('percent'),
-    dataIndex: 'percent',
-    key: 'percent',
-  },
-  {
-    title: t('projectType'),
-    dataIndex: 'projectType',
-    key: 'projectType',
+    title: t('title'),
+    dataIndex: 'title',
+    key: 'title',
   },
   {
     title: 'action',
@@ -64,26 +44,24 @@ const columns = [
 const params = ref({
   page: 1,
   limit: 10,
+  type: 'lecture'
 })
 
 const filter = ref<{ query: string }>({
   query: '',
 })
 const ProjectFormDialogRef = ref<InstanceType<typeof ProjectFormDialog>>()
-const IMAGE_URL = computed(() => API_FILE_URL)
-const handleClickCreateUserBtn = () => {
-  ProjectFormDialogRef.value?.open()
-}
+
 
 const totalItems = ref(0)
 const loadData = async () => {
   loading.value = true
   try {
     const {
-      data: { data },
+      data: { items, meta },
     } = await getProjectList({ ...params.value, ...filter.value })
-    // totalItems.value = meta.totalItems
-    projects.value = data
+    totalItems.value = meta.totalItems
+    projects.value = items
   }
   catch (e) {
     if (isAxiosError(e)) {
@@ -129,6 +107,31 @@ const initParams = () => {
 }
 
 initParams()
+const downloadDocument = () => {
+  if (projects.value && projects.value.length > 0) {
+    const links = projects.value.map(item => {
+      if (item.files && item.files.length > 0) {
+        return `${API_FILE_URL}/${item.files[0].path}`;
+      }
+      return null;
+    }).filter(link => link !== null);
+
+    if (links.length > 0) {
+      links.forEach(documentUrl => {
+        const link = document.createElement('a');
+        link.href = documentUrl;
+        link.download = 'downloaded_document';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    } else {
+      console.error('No documents available for download');
+    }
+  } else {
+    console.error('No projects available for download');
+  }
+};
 
 const openFormDialog = (item: any) => {
   ProjectFormDialogRef.value?.open(item)
@@ -138,14 +141,33 @@ const openFormDialog = (item: any) => {
 <template>
   <div style="padding: 16px">
     <h3 class="page-title font-semibold text-lg">
-      {{ $t("projects") }}
+      {{ $t("lecture") }}
     </h3>
-
-    <ProjectTableTopBar
-      :filter="filter"
-      @handle-filter="changeFilter"
-      @handle-click-create="handleClickCreateUserBtn"
-    />
+    <ACard class="flex justify-between" >
+      <div class="flex items-center ">
+        <AButton
+          type="primary"
+          class="flex items-center mr-4"
+          @click="$refs.ProjectFormDialogRef.open()"
+        >
+          <PlusIcon class="mr-2.5" />
+          {{ $t("add") }}
+        </AButton>
+        <AInput
+          v-model:value="filter.query"
+          :placeholder="$t('search')"
+          class="product-input"
+          allow-clear
+          @input="changeFilter"
+        >
+          <template #suffix>
+            <span class="">
+              <SearchIcon />
+            </span>
+          </template>
+        </AInput>
+      </div>
+    </ACard>
     <ATable
       :pagination="false"
       :loading="loading"
@@ -172,18 +194,13 @@ const openFormDialog = (item: any) => {
           {{record.projectType.value}}
         </div>
         <div v-if="column.dataIndex === 'action'">
-          <div class="action-cell">
-            <a-button
-              v-if="hasAccess(PERMISSIONS.EMPLOYEE_UPDATE)"
-              class="action-btn"
-              @click="openFormDialog(record)"
-            >
-              <template #icon>
-                <PenIcon />
-              </template>
-            </a-button>
+          <div class="action-cell items-center">
+            <AButton  size="large"    type="primary"
+                      class="flex items-center mr-4 gap-2" @click="downloadDocument">
+              <HashtagIcon style="fill: none;" />
+              {{ $t('download') }}
+            </AButton>
             <a-popconfirm
-              v-if="hasAccess(PERMISSIONS.EMPLOYEE_DELETE)"
               :title="$t('confirmDelete')"
               :ok-text="$t('yes')"
               :cancel-text="$t('no')"
@@ -209,7 +226,7 @@ const openFormDialog = (item: any) => {
         @change="changePagination"
       />
     </div>
-    <ProjectFormDialog ref="ProjectFormDialogRef" @update:data="loadData" @saved="loadData" />
+    <ProjectTableTopBar ref="ProjectFormDialogRef" @update:data="loadData" @saved="loadData" />
   </div>
 </template>
 

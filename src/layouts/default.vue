@@ -3,17 +3,20 @@ import type { RouteLocationRaw } from 'vue-router'
 
 import { useI18n } from 'vue-i18n'
 import AngleLeftIcon from '~/assets/icons/angle-left.svg'
-import Balance from '~/assets/icons/balance.svg'
+import Balance from '~/assets/icons/sidebar/play1.svg'
+
+
+
+
+import Home from '~/assets/icons/sidebar/home.svg'
 import Message from '~/assets/icons/message-edit.svg'
 import Contract from '~/assets/icons/contract-file.svg'
 
 import { useAccess } from '~/composables/useAccess'
-import { PERMISSIONS } from '~/utils/constants'
 const { t } = useI18n({ useScope: 'local' })
 
 const collapsed = ref(false)
 
-const { hasAccess } = useAccess()
 
 const navigations: {
   title: string
@@ -23,7 +26,7 @@ const navigations: {
 }[] = [
   {
     title: t('home'),
-    icon: Balance,
+    icon: Home,
     access: true,
     to: { name: 'home' },
   },
