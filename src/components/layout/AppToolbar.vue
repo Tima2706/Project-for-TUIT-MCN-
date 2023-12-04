@@ -11,6 +11,26 @@ import Cookies from 'universal-cookie'
 import {IS_DEV} from "~/utils/config";
 const open = ref<boolean>(false);
 import { API_FILE_URL } from '~/utils/config'
+import {getUserInfo} from "~/services/userInformation";
+import {getProjectList} from "~/services/projects";
+import {isAxiosError} from "axios/index";
+import {notification} from "ant-design-vue";
+
+const loading = ref(false)
+const profile = ref([])
+const loadData = async () => {
+  loading.value = true
+  try {
+    const {data: data} = await getUserInfo()
+    profile.value = data
+  }
+  catch (e) {
+    console.log(e)
+  }
+  finally {
+    loading.value = false
+  }
+}
 
 
 const showDrawer = () => {
@@ -77,11 +97,7 @@ const checkLanguage = () => {
   }
 }
 checkLanguage()
-
-// const handleLogout = () => {
-//   removeToken()
-//   router.replace({ name: 'auth-login' })
-// }
+loadData()
 const handleLogout = () => {
   if (IS_DEV) {
     removeToken()
@@ -111,6 +127,13 @@ window.addEventListener('resize', updateIsOpenSubMenu)
 <template>
   <!--  <div class="ant-layout-header__inner"> -->
   <DTHeader>
+    <div class="logo-tuit">
+      <VText style="color: #FFFFFF; font-weight: 600; font-size: 25px; font-style: italic">
+        <a href="https://tuit.uz/">
+        <img src="https://static.tuit.uz/assets/c4c88c23/img/src/newlogotype.png" alt="#" />
+        </a>
+      </VText>
+    </div>
     <div class="flex navbar-dropdown">
       <div class="action action-language">
         <a-dropdown :trigger="['click']">
@@ -139,7 +162,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
       <div @click="showDrawer">
         <p class="dropdown-trigger select-none">
           <UserProfileIcon />
-          {{ organizationStore?.organization?.name }}
+          {{ profile.username }}
           <AngleDownIcon />
         </p>
       </div>
@@ -156,55 +179,32 @@ window.addEventListener('resize', updateIsOpenSubMenu)
         <ACard style="border: 1px solid #d5d3d3">
           <div class="mb-3">
           <VText>
-            {{$t('companyName')}}
+            {{$t('username')}}
           </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.name}}
+              {{profile.username}}
             </VText>
           </div>
           <div class="mb-3">
             <VText>
-              {{$t('fullName')}}
+              {{$t('firstname')}}
             </VText>
-            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
-            {{organizationStore?.organization?.director.lastname}}    {{organizationStore?.organization?.director.firstname}} {{organizationStore?.organization?.director.middlename}}
-            </VText>
-          </div>
-          <div class="mb-3">
-            <VText>
-              {{$t('numberPhone')}}
-            </VText>
-            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              +{{organizationStore?.organization?.director?.phone_number}}
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{profile.firstname}}
             </VText>
           </div>
           <div class="mb-3">
             <VText>
-              {{$t('email')}}
+              {{$t('lastname')}}
             </VText>
-            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.director?.email}}
-            </VText>
-          </div>
-          <div class="mb-3">
-            <VText>
-              {{$t('address')}}
-            </VText>
-            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.address}}
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{profile.lastname}}
             </VText>
           </div>
-          <div class="mb-3">
-            <VText>
-              {{$t('website')}}
-            </VText>
-            <VText  style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.website}}
-            </VText>
-          </div>
+
         </ACard>
         <div style="cursor: pointer;" class="flex justify-center mt-5"  @click="handleLogout">
-          <AButton style="color: #FFFFFF">{{ $t("exitTheOffice") }}</AButton>
+          <AButton style="color: #FFFFFF">{{ $t("exit") }}</AButton>
         </div>
 
       </a-drawer>
@@ -215,7 +215,18 @@ window.addEventListener('resize', updateIsOpenSubMenu)
   <!--  </div> -->
 </template>
 
-<style   lang="scss">
+<style  lang="scss">
+
+.dt-header_container .dt-header__navbar-right {
+  justify-content: space-between !important;
+  flex-grow: 1;
+}
+.dt-header_container .dt-header__logo, .dt-header_container .dt-header__menu-icon{
+  display: none !important;
+}
+.dt-header__nav{
+  display: none !important;
+}
 .ant-drawer-header{
   background: #FFFFFF;
 }

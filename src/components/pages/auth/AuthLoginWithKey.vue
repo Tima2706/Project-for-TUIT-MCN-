@@ -1,55 +1,33 @@
 <script lang="ts" setup>
 import { notification } from 'ant-design-vue'
-import type { ESignKey } from '@shohrux_saidov/eimzo-client'
-import { initModuleEimzo } from '@shohrux_saidov/eimzo-client'
 import { isAxiosError } from 'axios'
-import FolderIcon from '~/assets/icons/folder-line.svg'
-import InfoIcon from '~/assets/icons/info-line.svg'
-import ESignKeyItem from '~/components/base/ESign/ESignKey.vue'
-import { getChallenge } from '~/services/esign.service'
-import { loginWithSign } from '~/services/authorizationService'
+import { register} from '~/services/authorizationService'
+import {RegisterRequest} from "~/services/dto";
 
-const emits = defineEmits(['success', 'needToRegister'])
+const emits = defineEmits(['success'])
 
-const hasError = ref(false)
-const userKeys = ref<ESignKey[]>([])
-const selectedKey = ref<ESignKey | null>(null)
-const eimzo = ref()
+const FormRef = ref()
+
+const userCredential = ref<RegisterRequest>({
+  username: 'admin',
+  password: 'password',
+  firstname: '',
+  lastname: ''
+})
+
 const loading = ref(false)
-const getListOfKeys = async () => {
-  try {
-    eimzo.value = await initModuleEimzo()
-    await eimzo.value.checkVersion()
-    await eimzo.value.installApiKeys()
-    userKeys.value = await eimzo.value.listAllUserKeys()
-    selectedKey.value = userKeys.value[0]
-  }
-  catch (e) {
-    hasError.value = true
-  }
-}
-
-getListOfKeys()
-
 const submit = async () => {
   loading.value = true
   try {
-    const { data: { challenge } } = await getChallenge()
-    const { hash: { pkcs7_64 } } = await eimzo.value.signPkcs7(selectedKey.value, challenge)
-    const { data: { access_token, expiresIn, need_to_register, organization_tin } } = await loginWithSign({ pkcs7_64 })
-    if (need_to_register) {
-      emits('needToRegister', organization_tin)
-      return
-    }
+    const { data: { access_token, expiresIn } } = await register({ ...userCredential.value })
     emits('success', { access_token, expiresIn })
   }
   catch (e) {
-    if (typeof e === 'string') {
-      notification.error({ message: e })
-    }
-    else if (isAxiosError(e)) {
-      const message = e.response?.data?.message || e.message
-      notification.error({ message })
+    if (isAxiosError(e)) {
+      notification.error({
+        message: e.response?.data.message,
+        description: e.response?.data.error,
+      })
     }
   }
   finally {
@@ -59,44 +37,47 @@ const submit = async () => {
 </script>
 
 <template>
-  <a-card class="wrapper">
-    <p class="title">
-      {{ $t('loginWithEDS') }}
-    </p>
-    <a-dropdown :trigger="['click']">
-      <div class="key-list-trigger">
-        <p v-if="!selectedKey">
-          {{ $t('chooseAKey') }}
-        </p>
-        <p v-else>
-          {{ selectedKey?.CN }}
-        </p>
-        <FolderIcon class="key-list-trigger__icon" />
-      </div>
-      <template #overlay>
-        <a-menu>
-          <a-menu-item v-for="key in userKeys" :key="key.UID">
-            <ESignKeyItem :item="key" @select="selectedKey = key" />
-          </a-menu-item>
-        </a-menu>
-      </template>
-    </a-dropdown>
-    <p v-if="hasError" class="text-danger">
-      {{ $t('youMayNotHaveEIMZO') }}
-      <a href="">https://e-imzo.uz/</a>
-    </p>
-    <p class="subtitle">
-      {{ $t('whatIsAnEDSKey') }}?
-      <span class="subtitle__icon">
-        <InfoIcon />
-      </span>
-    </p>
-    <a-button :loading="loading" size="large" class="submit-btn" type="primary" @click="submit">
-      {{ $t('signInWithEDS') }}
-    </a-button>
-  </a-card>
+  <div class="login-page__auth-with-login">
+    <ACard class="wrapper">
+      <p class="title">
+        {{ $t('loginInSystem') }}
+      </p>
+
+      <Form ref="FormRef" @submit="submit">
+        <div class="form-control">
+          <div class="form-control">
+            <Field v-slot="{ errors }" :model-value="userCredential.firstname" name="firstname" rules="required">
+              <AInput v-model:value="userCredential.firstname" class="login-input" :class="[{ 'has-error': errors.length }] " type="password" placeholder="FirstName" size="large" />
+              <ErrorMessage name="firstname" />
+            </Field>
+          </div>
+          <div class="form-control">
+            <Field v-slot="{ errors }" :model-value="userCredential.lastname" name="password" rules="required">
+              <AInput v-model:value="userCredential.lastname" class="login-input" :class="[{ 'has-error': errors.length }] " type="password" placeholder="LastName" size="large" />
+              <ErrorMessage name="password" />
+            </Field>
+          </div>
+          <Field v-slot="{ errors }" :model-value="userCredential.username" name="username" rules="required">
+            <AInput v-model:value="userCredential.username" :class="{ 'has-error': errors.length }" />
+            <ErrorMessage name="username" />
+          </Field>
+        </div>
+        <div class="form-control">
+          <Field v-slot="{ errors }" :model-value="userCredential.password" name="password" rules="required">
+            <AInput v-model:value="userCredential.password" class="login-input" :class="[{ 'has-error': errors.length }] " type="password" placeholder="Пароль" size="large" />
+            <ErrorMessage name="password" />
+          </Field>
+        </div>
+
+
+        <a-button :loading="loading" html-type="submit" size="large" class="submit-btn" type="primary">
+          {{ $t('toComeIn') }}
+        </a-button>
+      </Form>
+    </ACard>
+  </div>
 </template>
 
-<style lang="scss" scoped>
-@import "./AuthLoginWithKey";
+<style scoped lang="scss">
+@import './authLoginWithPassword';
 </style>

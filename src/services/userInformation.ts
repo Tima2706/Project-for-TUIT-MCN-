@@ -1,5 +1,5 @@
-import { $httpUser } from '~/services/baseHttp'
+import { $http } from '~/services/baseHttp'
 
 export const getUserInfo = async () => {
-  return await $httpUser.get('/organization/profile')
+  return await $http.get('/profile')
 }

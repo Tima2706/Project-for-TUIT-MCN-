@@ -11,9 +11,12 @@ declare module 'axios' {
   }
 }
 
-
+const username = 'desmond';
+const password = 'desmond';
+const credentials = btoa(username + ':' + password);
 export const $http = axios.create({
   baseURL: API_BASE_URL,
+  headers: { 'Authorization': + credentials }
 })
 
 $http.interceptors.response.use(

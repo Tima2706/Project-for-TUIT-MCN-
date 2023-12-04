@@ -8,13 +8,13 @@ import {
   updateProject,
 } from '~/services/projects'
 import { API_FILE_URL } from '~/utils/config'
-import {getEmployee} from "~/services/employees";
-import {getTeamList} from "~/services/teamsDTM";
-import dayjs from "dayjs";
 const props = defineProps<{ attributeId: string }>()
+const status = ref('done')
+import { UploadOutlined } from '@ant-design/icons-vue';
+import type { UploadProps } from 'ant-design-vue';
+const fileList = ref<UploadProps['fileList']>();
 
 const emits = defineEmits<ProductsEmitsType>()
-const employees = ref<any>([])
 const group = ref<any>([])
 
 const { t } = useI18n()
@@ -22,77 +22,24 @@ const { getFieldErrors } = useServerError()
 const params = ref({
   organizationId: null,
 })
-const employee = ref({
-  isManager: true
-})
+
+
 interface ProductsEmitsType {
   (e: 'update:data'): void
 }
 
 const FORM = {
-  name: '',
-  codeName: '',
-  projectType: 'KANBAN',
-  group: {
-    id: null
-  },
-  manager: {
-    id: null
-  },
-  uuid: null,
-  deadLine: null
+  type: 'practical',
+  title: '',
+  files: ''
 }
-const spinning = ref(false)
 const visible = ref(false)
 const submitLoading = ref(false)
 const formRef = ref()
 const form = ref<any>({ ...FORM })
 const images = ref<Array<{ url: string }>>([])
-const formNew = ref('')
 const IMAGE_URL = computed(() => API_FILE_URL)
 
-const fetchData = async () => {
-  spinning.value = true
-  const reqParams: Record<string, any> = {
-    ...employee.value,
-  }
-  if (reqParams.status === 'All')
-    reqParams.status = null
-  try {
-    const {
-      data: { data},
-    } = await getEmployee(reqParams)
-
-    employees.value = data
-  }
-  catch (err) {
-    console.error(err)
-  }
-  finally {
-    spinning.value = false
-  }
-}
-const getGroup = async () => {
-  spinning.value = true
-  const reqParams: Record<string, any> = {
-    ...params.value,
-  }
-  if (reqParams.status === 'All')
-    reqParams.status = null
-  try {
-    const {
-      data: { data},
-    } = await getTeamList(reqParams)
-
-    group.value = data
-  }
-  catch (err) {
-    console.error(err)
-  }
-  finally {
-    spinning.value = false
-  }
-}
 
 watch(visible, (val) => {
   if (!val) {
@@ -106,15 +53,14 @@ watch(visible, (val) => {
 })
 const submit = async () => {
   const validate = await formRef.value.validate()
-  const deadLine = dayjs(form.value.deadLine).format('YYYY-MM-DD')
 
   if (validate && validate.valid) {
     submitLoading.value = true
     const { id } = form.value
     try {
       if (id)
-        await updateProject( { ...form.value, deadLine })
-      else await createProject({ ...form.value, deadLine })
+        await updateProject( { ...form.value,  })
+      else await createProject({ ...form.value,  })
 
       notification.success({
         message: t('successfully'),
@@ -136,32 +82,33 @@ const submit = async () => {
 const close = () => {
   visible.value = false
 }
-const getCheckedEmployeesOptions = computed(() => {
-  return employees.value
-      .map((employee) => ({lastName:employee.lastName , label: employee.firstName, value: employee.id , role: employee.roles.map(item => item.roleName)}));
-});
+
 const open = (item: any) => {
   if (item) {
     form.value = {
-      name: item.name,
+      title: item.title,
+      type: item.type,
+      files: item.files,
       id: item.id,
-      codeName: item.codeName,
-      projectType: item.projectType,
-      group: item.group,
-      manager: item.manager,
-      uuid: item.uuid,
-      deadLine: item.deadLine ? dayjs(item.deadLine) : null
-
     }
-
     if (item.icon)
       images.value.push({ url: `${IMAGE_URL.value}/${item.icon}` })
   }
   visible.value = true
 }
-fetchData()
-getGroup()
 defineExpose({ open })
+
+const formData = new FormData()
+
+// formData.append('title','fsadfs')
+// formData.append('files','')
+const beforeUpload = (val: any) => {
+  form.value.files = val.file
+  setTimeout(() => {
+    if (fileList.value?.length)
+      fileList.value[0].status = 'done'
+  }, 1000)
+}
 
 
 </script>
@@ -182,60 +129,26 @@ defineExpose({ open })
         <ACol :span="24">
             <div class="flex">
               <div style="width: 50%;" class="pr-4">
-                <VText class="pb-3">{{$t('users')}}</VText>
-                <Field
-                  v-slot="{ errors }"
-                  :model-value="form.name"
-                  name="name"
-                  rules="required"
-                >
+                <VText class="pb-3">{{$t('title')}}</VText>
+
                   <AInput
                     :placeholder="$t('name')"
-                    v-model:value="form.name"
-                    :class="{ 'has-error': errors.length }"
+                    v-model:value="form.title"
                   />
-                  <div class="helper-message">
-                    <ErrorMessage name="name" />
-                  </div>
-                </Field>
-                <Field
-                  v-slot="{ errors }"
-                  :model-value="form.codeName"
-                  name="code_Name"
-                  rules="required"
+
+                <VText class="pb-3">{{$t('value')}}</VText>
+                <a-upload v-model:file-list="fileList"
+                          accept="file/doc, file/docx"
+                          list-type="picture"
+                          :custom-request="beforeUpload"
+                          :status="status"
+                          :max-count="1"
                 >
-                  <AInput
-                    :placeholder="$t('codeName')"
-                    v-model:value="form.codeName"
-                    :class="{ 'has-error': errors.length }"
-                  />
-                  <div class="helper-message">
-                    <ErrorMessage name="code_Name" />
-                  </div>
-                </Field>
-                <a-select
-                  v-model:value="form.group.id"
-                  class="mb-4"
-                  :options="group"
-                  :field-names="{label: 'name', value: 'id'}"
-                  style="width: 100%"
-                  placeholder="select Team"
-               />
-                <a-select
-                    v-model:value="form.manager.id"
-                    style="width: 100%"
-                    placeholder="select Manager"
-                >
-                  <ASelectOption
-                      v-for="item in getCheckedEmployeesOptions"
-                      :key="item.value"
-                      :value="item.id"
-                  >
-                    {{item.label + ' ' + item.lastName}}
-                  </ASelectOption>
-                </a-select>
-                <VText>Deadline</VText>
-                <a-date-picker v-model:value="form.deadLine" />
+                  <a-button>
+                    <upload-outlined></upload-outlined>
+                    Upload
+                  </a-button>
+                </a-upload>
               </div>
             </div>
         </ACol>

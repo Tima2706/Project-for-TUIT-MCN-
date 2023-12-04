@@ -38,7 +38,7 @@ const onNeedToRegister = (tin: string) => {
     <a-row>
       <a-col class="px-2">
         <a-button :type="isLoginWithKeyFormActive ? 'primary' : 'default'" class="toggle-button" size="large" @click="changeForm('withKey')">
-          {{ $t('loginWithEDS') }}
+          {{ $t('register') }}
         </a-button>
       </a-col>
       <a-col class="px-2">
@@ -48,7 +48,7 @@ const onNeedToRegister = (tin: string) => {
       </a-col>
     </a-row>
     <TransitionSlide mode="out-in">
-<!--      <AuthLoginWithKey v-if="isLoginWithKeyFormActive" @need-to-register="onNeedToRegister" @success="onSuccessLogin" />-->
+      <AuthLoginWithKey v-if="isLoginWithKeyFormActive" @need-to-register="onNeedToRegister" @success="onSuccessLogin" />
       <AuthLoginWithLoginAndPassword @success="onSuccessLogin" />
     </TransitionSlide>
   </div>

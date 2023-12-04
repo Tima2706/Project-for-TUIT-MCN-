@@ -6,7 +6,7 @@
             {{ $t(`${weatherData?.weather?.map(item => item?.main).join(' ')}`)}} {{temperatureCelsius?.slice(0,2)}} °C
           </h1>
           <h1 style="color: #FFFFFF; font-size: 64px" class="nd_p_text120">{{ hours }}:{{ minutes }}:{{seconds}}</h1>
-      <h1 style="color: #FFFFFF; font-size: 24px; text-align: end; font-weight: 500"><span style="border-radius: 6px; padding: 3px 6px; background: #eeee27">{{year}}:{{month + 1}}:{{day}}</span></h1>
+      <h1 style="color: #FFFFFF; font-size: 24px; text-align: end; font-weight: 500"><span style="border-radius: 6px; padding: 3px 6px; background: rgba(255, 255, 255, 0.12)">{{day}}/{{month + 1}}/{{year}}</span></h1>
         </div>
       <div class="flex gap-14">
       <HomeNodes/>
@@ -68,7 +68,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 
 .main{
-  background-image: url("../../assets/images/eren.png");
+  background-image: url("../../assets/images/robert-linder-FDIJU4mave8-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0;

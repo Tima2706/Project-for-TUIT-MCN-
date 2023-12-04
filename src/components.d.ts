@@ -33,6 +33,7 @@ declare module '@vue/runtime-core' {
     ASelectOption: typeof import('ant-design-vue/es')['SelectOption']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
+    AUpload: typeof import('ant-design-vue/es')['Upload']
     AuthConfirmOtpForm: typeof import('./components/pages/auth/AuthConfirmOtpForm.vue')['default']
     AuthLoginWithKey: typeof import('./components/pages/auth/AuthLoginWithKey.vue')['default']
     AuthLoginWithLoginAndPassword: typeof import('./components/pages/auth/AuthLoginWithLoginAndPassword.vue')['default']

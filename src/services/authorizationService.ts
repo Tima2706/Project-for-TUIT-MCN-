@@ -1,9 +1,13 @@
 import type { AxiosResponse } from 'axios'
 import { $http } from '~/services/baseHttp'
 import type { AuthLoginWithKeyRequest, AuthLoginWithKeyResponse, ConfirmOTPRequest, ConfirmOTPResponse, LoginRequest, LoginResponse, MeResponse } from '~/services/dto/auth.dto'
+import {RegisterRequest} from "~/services/dto/auth.dto";
 
 export const login = (data: LoginRequest) => {
   return $http.post<LoginRequest, AxiosResponse<LoginResponse>>('auth/login', data)
+}
+export const register = (data: RegisterRequest) => {
+  return $http.post<LoginRequest, AxiosResponse<LoginResponse>>('auth/register', data)
 }
 
 export const confirmOtp = (req: ConfirmOTPRequest) => {
