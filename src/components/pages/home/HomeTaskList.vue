@@ -6,7 +6,6 @@
       <p class="nd_info_text nd_p_text12 nd_text_black mb-4">{{item.description}}</p>
       <div class="my_users mb-3">
         <div class="user_one">
-          <img src="../../assets/logo.png" alt="">
         </div>
       </div>
       <div>
