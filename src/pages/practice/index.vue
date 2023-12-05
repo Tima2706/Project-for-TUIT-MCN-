@@ -20,8 +20,6 @@ const projects = ref<any[]>()
 import PlusIcon from "~/assets/icons/plus-fill.svg";
 import {API_FILE_URL} from "~/utils/config";
 import HashtagIcon from "~/assets/icons/hashtag.svg";
-import {useStorageService} from "~/modules/storage-service";
-const { $set, $get } = useStorageService()
 const organizationStore = useOrganizationStore()
 
 const { t } = useI18n()

@@ -42,10 +42,10 @@ export const createApp = ViteSSG(
       await getOrganization().catch(() => {
         // eslint-disable-next-line no-console
         console.log('Token was expired')
-        // setTimeout(() => {
-        //   ctx.router.replace({ name: 'auth-login' })
-        //   removeToken()
-        // })
+        setTimeout(() => {
+          ctx.router.replace({ name: 'auth-login' })
+          // removeToken()
+        })
       })
     }
 

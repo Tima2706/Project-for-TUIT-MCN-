@@ -9,13 +9,9 @@ import { useStorageService } from '~/modules/storage-service'
 import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
 import {IS_DEV} from "~/utils/config";
-const open = ref<boolean>(false);
-import { API_FILE_URL } from '~/utils/config'
 import {getUserInfo} from "~/services/userInformation";
-import {getProjectList} from "~/services/projects";
-import {isAxiosError} from "axios/index";
-import {notification} from "ant-design-vue";
-
+import {getNoteList} from "~/services/interfaces/note";
+const open = ref<boolean>(false);
 const loading = ref(false)
 
 
@@ -29,6 +25,17 @@ interface Language {
 }
 const cookies = new Cookies(null, { path: '/' })
 
+const loadData = async () => {
+    try {
+        const {
+            data: {data},
+        } = await getUserInfo()
+       return {data}
+    } catch (err) {
+        console.error(err)
+    } finally {
+    }
+}
 const { locale } = useI18n({ useScope: 'local' })
 const { $set, $get } = useStorageService()
 
@@ -90,7 +97,7 @@ const handleLogout = () => {
   }
   logout()
 }
-
+loadData()
 
 const mainNavActive = ref(false)
 
@@ -146,7 +153,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
       <div @click="showDrawer">
         <p class="dropdown-trigger select-none">
           <UserProfileIcon />
-          {{ organizationStore?.organization.username }}
+          {{ organizationStore?.organization?.username }}
           <AngleDownIcon />
         </p>
       </div>
@@ -166,7 +173,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
             {{$t('username')}}
           </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization.username}}
+              {{organizationStore?.organization?.username}}
             </VText>
           </div>
           <div class="mb-3">
@@ -174,7 +181,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
               {{$t('firstname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization.firstname}}
+              {{organizationStore?.organization?.firstname}}
             </VText>
           </div>
           <div class="mb-3">
@@ -182,7 +189,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
               {{$t('lastname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization.lastname}}
+              {{organizationStore?.organization?.lastname}}
             </VText>
           </div>
 
