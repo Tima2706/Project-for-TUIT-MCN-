@@ -41,6 +41,7 @@ const setTime = () => {
     const date = new Date();
     hours.value = date.getHours();
     minutes.value = checkSingleDigit(date.getMinutes());
+
     seconds.value = checkSingleDigit(date.getSeconds());
   }, 1000);
 };
