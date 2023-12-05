@@ -8,7 +8,6 @@ import { useToken } from '~/composables/useToken'
 import { useStorageService } from '~/modules/storage-service'
 import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
-import {IS_DEV} from "~/utils/config";
 import {getUserInfo} from "~/services/userInformation";
 import {getNoteList} from "~/services/interfaces/note";
 const open = ref<boolean>(false);
@@ -90,12 +89,8 @@ const checkLanguage = () => {
 }
 checkLanguage()
 const handleLogout = () => {
-  if (IS_DEV) {
-    removeToken()
-    router.replace({ name: 'auth-login' })
-    return
-  }
-  logout()
+  removeToken()
+  router.replace({ name: 'auth-login' })
 }
 loadData()
 

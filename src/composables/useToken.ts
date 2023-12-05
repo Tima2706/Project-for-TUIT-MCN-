@@ -1,6 +1,5 @@
 import type { CookieSetOptions } from 'universal-cookie'
 import Cookies from 'universal-cookie'
-import { IS_DEV } from '~/utils/config'
 
 export function useToken() {
   const cookies = new Cookies()
@@ -9,7 +8,6 @@ export function useToken() {
     const options: CookieSetOptions = {
       path: '/',
     }
-    if (!IS_DEV)
 
     cookies.set(TOKEN_KEY, token, options)
     return token
@@ -23,7 +21,6 @@ export function useToken() {
     const options: CookieSetOptions = {
       path: '/',
     }
-    if (!IS_DEV)
     cookies.remove(TOKEN_KEY, options)
   }
 
