@@ -33,7 +33,7 @@ const onNeedToRegister = (tin: string) => {
 </script>
 
 <template>
-  <div v-if="!loading" style="min-height: 386px" class="login-page">
+  <div  style="min-height: 386px" class="login-page">
     <a-row>
       <a-col class="px-2">
         <a-button :type="isLoginWithKeyFormActive ? 'primary' : 'default'" class="toggle-button" size="large" @click="changeForm('withKey')">
