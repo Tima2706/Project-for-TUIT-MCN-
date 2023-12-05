@@ -1,26 +1,26 @@
 <script lang="ts" setup>
 import { TransitionSlide } from '@morev/vue-transitions'
 import { useToken } from '~/composables/useToken'
-import {IS_DEV} from "~/utils/config";
+// import {IS_DEV} from "~/utils/config";
 
 type FORM_TYPE = 'withKey' | 'withLoginAndPassword'
 const activeForm = ref<FORM_TYPE>('withKey')
 const router = useRouter()
 const route = useRoute()
 const { getOrganization } = useOrganizationStore()
-const { setToken, gotoLogin } = useToken()
+const { setToken,  } = useToken()
 const changeForm = (t: FORM_TYPE) => {
   activeForm.value = t
 }
 const loading = ref(true)
 
-if (!getOrganization) {
-
-}
-if (IS_DEV)
-  loading.value = false
-else
-  gotoLogin()
+// if (!getOrganization) {
+//
+// }
+// if (IS_DEV)
+//   loading.value = false
+// else
+//   gotoLogin()
 
 const isLoginWithKeyFormActive = computed(() => activeForm.value === 'withKey')
 
