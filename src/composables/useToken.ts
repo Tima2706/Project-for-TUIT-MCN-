@@ -5,13 +5,11 @@ import { IS_DEV } from '~/utils/config'
 export function useToken() {
   const cookies = new Cookies()
   const TOKEN_KEY = 'aa_key'
-  const DOMAIN = '.dt.uz'
   const setToken = (token: string): string => {
     const options: CookieSetOptions = {
       path: '/',
     }
     if (!IS_DEV)
-      options.domain = DOMAIN
 
     cookies.set(TOKEN_KEY, token, options)
     return token
@@ -26,7 +24,6 @@ export function useToken() {
       path: '/',
     }
     if (!IS_DEV)
-      options.domain = DOMAIN
     cookies.remove(TOKEN_KEY, options)
   }
 
