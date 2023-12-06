@@ -30,7 +30,7 @@ const columns = [
 
   },
   {
-    title: t('title'),
+    title: t('subject'),
     dataIndex: 'title',
     key: 'title',
   },

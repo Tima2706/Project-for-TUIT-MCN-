@@ -10,7 +10,7 @@
         </div>
       <div class="flex gap-14">
       <HomeNodes/>
-    <HomeTaskList/>
+<!--    <HomeTaskList/>-->
       </div>
     </div>
 

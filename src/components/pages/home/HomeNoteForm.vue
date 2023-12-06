@@ -4,7 +4,7 @@
       :title="
       form.id
         ? `Edit`
-        : `${$t('add')} ${$t('team')}`
+        : `${$t('add')} ${$t('заметку')}`
     "
       width="600px"
       :footer="false"
@@ -42,30 +42,9 @@
               <ErrorMessage name="description"/>
             </div>
           </Field>
-          <Field :name="$t('fromTime')"     v-slot="{ errors }"
-                 :model-value="form.fromTime"
-                 rules="required">
-          <a-date-picker v-model:value="form.fromTime" :class="{'has-error': errors.length}"  show-time placeholder="Select Time" />
-            <div class="helper-message">
-              <ErrorMessage :name="$t('fromTime')" />
-            </div>
-          </Field>
-          <Field :name="$t('toTime')"  v-slot="{ errors }"
-                 :model-value="form.toTime"
-                 rules="required">
-            <a-date-picker v-model:value="form.toTime" :class="{'has-error': errors.length}"  show-time placeholder="Select Time" />
-            <div class="helper-message">
-              <ErrorMessage :name="$t('toTime')" />
-            </div>
-          </Field>
-          <a-select
-              v-model:value="form.statusType"
-              class="mb-4"
-              :options="selectedStatusNote"
-              :field-names="{label: 'name', value: 'name'}"
-              style="width: 100%"
-              placeholder="select Team"
-          />
+
+          <a-date-picker v-model:value="form.deadline"  show-time placeholder="Select Time" />
+
         </ACol>
         <ACol :span="24">
 
@@ -115,27 +94,11 @@ const submitLoading = ref<boolean>(false)
 const formRef = ref()
 const FORM = {
   id: '',
-  fromTime: null,
-  toTime: null,
+  deadline: null,
   description: '',
   title: '',
-  statusType: '',
 }
 const form = ref<any>({...FORM})
-const selectedStatusNote = ref([
-  {
-    name: 'BIRTHDAY',
-  },
-  {
-    name: 'ALERT'
-  },
-  {
-    name: 'EVENT'
-  },
-  {
-    name: 'CONFERENCE'
-  },
-])
 
 interface ProductsEmitsType {
   (e: 'update:data'): void
@@ -168,6 +131,14 @@ const submit = async () => {
     }
   }
 }
+watch(visible, (val) => {
+  if (!val) {
+    form.value = { ...FORM }
+  }
+else {
+    formRef.value?.resetForm()
+  }
+})
 
 const handleDelete = async (id: string) => {
   try {
@@ -187,11 +158,9 @@ const open = (item: any) => {
   if (item) {
     form.value = {
       id: item.id,
-      fromTime: item.fromTime ? dayjs(item.fromTime) : '',
-      toTime: item.toTime ? dayjs(item.toTime) : '',
+      deadline: item.deadline ? dayjs(item.deadline) : '',
       description: item.description,
       title: item.title,
-      statusType: item.statusType,
     }
   }
   visible.value = true

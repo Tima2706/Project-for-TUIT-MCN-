@@ -20,6 +20,7 @@ const projects = ref<any[]>()
 import PlusIcon from "~/assets/icons/plus-fill.svg";
 import {API_FILE_URL} from "~/utils/config";
 import HashtagIcon from "~/assets/icons/hashtag.svg";
+import {updateNote} from "~/services/interfaces/note";
 const organizationStore = useOrganizationStore()
 
 const { t } = useI18n()
@@ -37,6 +38,7 @@ const columns = [
     dataIndex: 'title',
     key: 'title',
   },
+
   {
     title: 'action',
     dataIndex: 'action',
@@ -47,7 +49,7 @@ const columns = [
 const params = ref({
   page: 1,
   limit: 10,
-  type: 'practical'
+  type: 'practical',
 })
 
 const filter = ref<{ query: string }>({
@@ -57,6 +59,7 @@ const ProjectFormDialogRef = ref<InstanceType<typeof ProjectFormDialog>>()
 
 
 const totalItems = ref(0)
+
 const loadData = async () => {
   loading.value = true
   try {
@@ -108,7 +111,6 @@ const initParams = () => {
   if (page)
     params.value.page = +page
 }
-
 initParams()
 const downloadDocument = () => {
   if (projects.value && projects.value.length > 0) {
@@ -187,6 +189,7 @@ const openFormDialog = (item: any) => {
         <div   v-if="column.dataIndex === 'id'">
           {{  index + 1 }}
         </div>
+
         <div v-if="column.dataIndex === 'action'">
           <div class="action-cell items-center">
             <AButton  size="large"    type="primary"

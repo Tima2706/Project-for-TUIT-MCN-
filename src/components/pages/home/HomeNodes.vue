@@ -1,6 +1,6 @@
 <template>
   <div class="homes_item">
-    <p style="font-weight: 600; color: #FFFFFF" class="uppercase pb-3">{{ $t('MyList') }}</p>
+    <p style="font-weight: 600; color: #FFFFFF" class="uppercase pb-3">{{ $t('Мои заметки') }}</p>
     <div v-for="(item, index) in noteList" :key="index" class="mb-2">
       <ACard @click="openFormDialog(item)">
         <div class="flex gap-2 items-center">
@@ -19,7 +19,7 @@
         </div>
         <VText class="flex justify-end pt-2"><span
             style="background: rgba(255,215,0,0.84); color: #FFFFFF; border-radius: 6px; font-size: 11px"
-            class="p-1">{{ item?.toTime}}</span></VText>
+            class="p-1">{{ item.deadline ? item.deadline.slice(8, 10) : "" }} {{ $t('day') }} {{ item.deadline ? item.deadline.slice(11, 16) : "" }}</span></VText>
       </ACard>
     </div>
     <a-button style="width: 100%; background: rgba(255, 255, 255, 0.60)" class="flex justify-center items-center"
@@ -49,9 +49,9 @@ const loadData = async () => {
   spinning.value = true
   try {
     const {
-      data: {data},
+      data: {items, meta},
     } = await getNoteList()
-    noteList.value = data
+    noteList.value = items
   } catch (err) {
     console.error(err)
   } finally {

@@ -132,7 +132,7 @@ defineExpose({open})
 
               <VText class="pb-3">{{ $t('value') }}</VText>
               <a-upload
-                accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                accept=".doc,.docx, ppt, pptx, .xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 @change="handleFileUpload"
                 :status="status"
                 :max-count="1"
