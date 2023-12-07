@@ -18,6 +18,7 @@ const route = useRoute()
 const loading = ref(false)
 const projects = ref<any[]>()
 import PlusIcon from "~/assets/icons/plus-fill.svg";
+const organizationStore = useOrganizationStore()
 
 const { t } = useI18n()
 
@@ -146,6 +147,7 @@ const openFormDialog = (item: any) => {
     <ACard class="flex justify-between" >
       <div class="flex items-center ">
         <AButton
+          v-if="organizationStore?.organization?.username === 'admin'"
           type="primary"
           class="flex items-center mr-4"
           @click="$refs.ProjectFormDialogRef.open()"
@@ -201,6 +203,7 @@ const openFormDialog = (item: any) => {
               {{ $t('download') }}
             </AButton>
             <a-popconfirm
+              v-if="organizationStore?.organization?.username === 'admin'"
               :title="$t('confirmDelete')"
               :ok-text="$t('yes')"
               :cancel-text="$t('no')"

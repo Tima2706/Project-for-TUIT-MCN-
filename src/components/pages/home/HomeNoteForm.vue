@@ -114,7 +114,7 @@ const submit = async () => {
     try {
 
       if (id)
-        await updateNote( {...form.value})
+        await updateNote( id,{...form.value})
       else await createNote({...form.value})
 
       notification.success({

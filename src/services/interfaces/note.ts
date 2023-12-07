@@ -11,6 +11,6 @@ export const deleteNoteId = (id: string) => {
 export const createNote = async (form: any) => {
     return await $http.post("/note", form);
 };
-export const updateNote = async ( form: any) => {
-    return await $http.put(`/note`, form);
+export const updateNote = async (id: string, form: any) => {
+    return await $http.patch(`/note/${id}`, form);
 };
