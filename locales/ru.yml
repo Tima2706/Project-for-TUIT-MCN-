@@ -4,10 +4,11 @@ practice: Практика
 subject: Тема
 home: Дом
 videoСourses: Видео курсы
+register: Регистрация на сайте
 Mist: Туман,
 Rain: Дождь,
 Sun: Солнечно,
-Сlear: Ясно,
+Clear: Ясно,
 Clouds: Облачно,
 Thunderstorm: Гроза,
 Snow: Снег,

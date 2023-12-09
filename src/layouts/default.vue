@@ -42,12 +42,12 @@ const navigations: {
     access: true,
     to: { name: 'practice' },
   },
-  {
-    title: t('videoСourses'),
-    icon: Balance,
-    access: true,
-    to: { name: 'videocourses' },
-  },
+  // {
+  //   title: t('videoСourses'),
+  //   icon: Balance,
+  //   access: true,
+  //   to: { name: 'videocourses' },
+  // },
 
 
 
