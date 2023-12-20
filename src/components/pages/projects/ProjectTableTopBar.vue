@@ -38,15 +38,14 @@ const submitLoading = ref(false)
 const formRef = ref()
 const form = ref<any>({...FORM})
 
-
 watch(visible, (val) => {
   if (!val) {
-    form.value = {...FORM}
+    form.value = { ...FORM }
   }
+  else {
 
-  setTimeout(() => {
     formRef.value?.resetForm()
-  })
+  }
 })
 const submit = async () => {
   const validate = await formRef.value.validate()
@@ -123,14 +122,14 @@ defineExpose({open})
         <ACol :span="24">
           <div class="flex">
             <div style="width: 50%;" class="pr-4">
-              <VText class="pb-3">{{ $t('title') }}</VText>
+              <VText class="pb-3">{{ $t('subject') }}</VText>
 
               <AInput
                 :placeholder="$t('name')"
                 v-model:value="form.title"
               />
 
-              <VText class="pb-3">{{ $t('value') }}</VText>
+
               <a-upload
                 accept=".doc,.docx, ppt, pptx, .xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 @change="handleFileUpload"

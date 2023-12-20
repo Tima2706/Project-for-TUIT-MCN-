@@ -2,7 +2,7 @@ Smoke: Дымно,
 lecture: Лекция
 practice: Практика
 subject: Тема
-home: Дом
+home: На главную
 videoСourses: Видео курсы
 register: Регистрация на сайте
 Mist: Туман,
@@ -203,6 +203,10 @@ blockedBalance: Блокированный (дипозит)
 expenses: Расходы
 throughKlering: Через клиринг
 agree: Согласится
+firstname: Имя
+username: Имя пользователя
+lastname: Фамилия
+tashkent: Ташкент
 operationTypes:
   TYPE_PAYMENT: Абонентская оплата
   TYPE_PLEDGE_BLOCK: Блок для залога
@@ -213,6 +217,7 @@ operationTypes:
   TYPE_DEPOSIT_PENALTY: Пополнения по штрафу
   TYPE_CONTRACT_PRICE_PAY: Оплата по контракту
   TYPE_CONTRACT_PRICE_DEPOSIT: Оплата за депозит контракта
+
 operationStatus:
   1: Отправлен в клиринг
   2: Отправлен в банк

@@ -20,6 +20,7 @@ const projects = ref<any[]>()
 import PlusIcon from "~/assets/icons/plus-fill.svg";
 const organizationStore = useOrganizationStore()
 
+
 const { t } = useI18n()
 
 const columns = [
@@ -36,7 +37,7 @@ const columns = [
     key: 'title',
   },
   {
-    title: 'action',
+    title: t('actions'),
     dataIndex: 'action',
     key: 'action',
     width: '5%',
@@ -44,7 +45,7 @@ const columns = [
 ]
 const params = ref({
   page: 1,
-  limit: 10,
+  limit: 15,
   type: 'lecture'
 })
 
@@ -92,6 +93,7 @@ const handleDelete = async (id: string) => {
     }
   }
 }
+
 const changePagination = () => {
   router.replace({ query: { ...route.query, page: params.value.page } }).then()
   loadData()
@@ -179,9 +181,9 @@ const openFormDialog = (item: any) => {
       <template #emptyText>
         <EmptyText />
       </template>
-      <template #bodyCell="{ column, record }">
+      <template #bodyCell="{ column, record, index }">
         <div  v-if="column.dataIndex === 'id'">
-          {{  1 }}
+          {{ index + 1}}
         </div>
         <div  v-if="column.dataIndex === 'team'">
           {{ record?.group?.name }}
@@ -222,7 +224,7 @@ const openFormDialog = (item: any) => {
     <div class="py-6">
       <a-pagination
         v-model:current="params.page"
-        :page-size="params.limit"
+        :page-size="params.limit "
         :total="totalItems"
         show-less-items
         hide-on-single-page

@@ -44,7 +44,7 @@ const submit = async () => {
       <Form ref="FormRef" @submit="submit">
         <div class="form-control">
           <Field v-slot="{ errors }" :model-value="userCredential.username" name="username" rules="required">
-            <AInput v-model:value="userCredential.username" :class="{ 'has-error': errors.length }" />
+            <AInput :placeholder="$t('username')" v-model:value="userCredential.username" :class="{ 'has-error': errors.length }" />
             <ErrorMessage name="username" />
           </Field>
         </div>

@@ -40,7 +40,7 @@ const columns = [
   },
 
   {
-    title: 'action',
+    title: t('actions'),
     dataIndex: 'action',
     key: 'action',
     width: '5%',

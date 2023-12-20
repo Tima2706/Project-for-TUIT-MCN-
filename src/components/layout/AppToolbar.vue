@@ -152,19 +152,18 @@ window.addEventListener('resize', updateIsOpenSubMenu)
           <AngleDownIcon />
         </p>
       </div>
-      <div class="user-profile-information">
+      <div >
       <a-drawer
         v-model:open="open"
         class="custom-class"
         root-class-name="root-class-name"
         :root-style="{ color: 'blue' }"
-        style="color: #000000; background: rgb(19,30,44)"
+        style="color: #000000; background: rgb(255,255,255)"
         :title="$t('profile')"
         placement="right"
       >
-        <ACard style="border: 1px solid #d5d3d3">
           <div class="mb-3">
-          <VText>
+          <VText style="color: darkgray">
             {{$t('username')}}
           </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
@@ -172,27 +171,33 @@ window.addEventListener('resize', updateIsOpenSubMenu)
             </VText>
           </div>
           <div class="mb-3">
-            <VText>
+            <VText style="color: darkgray">
               {{$t('firstname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
               {{organizationStore?.organization?.firstname}}
             </VText>
           </div>
-          <div class="mb-3">
-            <VText>
+          <div class="mb-3" >
+            <VText style="color: darkgray">
               {{$t('lastname')}}
             </VText>
             <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
               {{organizationStore?.organization?.lastname}}
             </VText>
           </div>
-
-        </ACard>
-        <div style="cursor: pointer;" class="flex justify-center mt-5"  @click="handleLogout">
-          <AButton style="color: #FFFFFF">{{ $t("exit") }}</AButton>
+        <a-divider/>
+        <div
+          class="w-full flex gap-2 items-center border-[1px] border-[#DFE2E9] py-2 px-3 rounded-md text-[#D65E81]"
+          @click="handleLogout"
+        >
+          <Logout/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+            <path stroke="#D65E81" stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.6 13.475H1.925c-.371 0-.727-.152-.99-.421a1.46 1.46 0 0 1-.41-1.018V1.964c0-.382.148-.748.41-1.017.263-.27.619-.422.99-.422H5.6M9.976 10.5l3.5-3.5-3.5-3.5M13.475 7h-8.4"></path>
+          </svg>
+          <p class="cursor-pointer">{{ $t('exitTheOffice') }}</p>
         </div>
-
       </a-drawer>
       </div>
     </div>
@@ -202,7 +207,22 @@ window.addEventListener('resize', updateIsOpenSubMenu)
 </template>
 
 <style  lang="scss">
+.ant-drawer-content-wrapper{
+  width: 298px !important;
+}
+.ant-drawer-header {
+  background: #FFFFFF;
+}
 
+.ant-drawer-close {
+  svg {
+    fill: #4A5C71;
+  }
+}
+
+.ant-drawer-title {
+  color: #4A5C71 !important;
+}
 .dt-header_container .dt-header__navbar-right {
   justify-content: space-between !important;
   flex-grow: 1;
@@ -221,10 +241,9 @@ window.addEventListener('resize', updateIsOpenSubMenu)
     fill: #4A5C71;
   }
 }
-  .ant-drawer-title{
-    color: #4A5C71 !important;
-  }
-
+.ant-drawer-title{
+  color: #4A5C71 !important;
+}
 
 //::-webkit-scrollbar{
 //  width: 15px;
