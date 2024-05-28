@@ -39,3 +39,4 @@ const route = useRoute()
 <style lang="scss">
 @import "../../styles/components/layout/appNavigation";
 </style>
+

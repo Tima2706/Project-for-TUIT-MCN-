@@ -66,7 +66,14 @@ const navigations: {
       <AngleLeftIcon width="10" />
     </button>
     <a-layout>
-      <a-layout-sider :collapsed-width="0" :collapsed="collapsed" width="268px">
+      <a-layout-sider style="border-top: 1px solid #48596D" :collapsed-width="0" :collapsed="collapsed" width="268px">
+        <div class="logo-tuit flex justify-center mt-5">
+          <VText style="color: #FFFFFF; font-weight: 600; font-size: 25px; font-style: italic">
+            <a href="https://tuit.uz/">
+              <img src="https://static.tuit.uz/assets/c4c88c23/img/src/newlogotype.png" alt="#" />
+            </a>
+          </VText>
+        </div>
         <div  class="sidebar">
           <div class="sidebar__header ">
             <p class="sidebar__title">

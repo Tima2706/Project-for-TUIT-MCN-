@@ -113,14 +113,7 @@ window.addEventListener('resize', updateIsOpenSubMenu)
 <template>
   <!--  <div class="ant-layout-header__inner"> -->
   <DTHeader>
-    <div class="logo-tuit">
-      <VText style="color: #FFFFFF; font-weight: 600; font-size: 25px; font-style: italic">
-        <a href="https://tuit.uz/">
-        <img src="https://static.tuit.uz/assets/c4c88c23/img/src/newlogotype.png" alt="#" />
-        </a>
-      </VText>
-    </div>
-    <div class="flex navbar-dropdown">
+    <div class="flex navbar-dropdown justify-end">
       <div class="action action-language">
         <a-dropdown :trigger="['click']">
           <p class="dropdown-trigger select-none">
@@ -224,9 +217,10 @@ window.addEventListener('resize', updateIsOpenSubMenu)
   color: #4A5C71 !important;
 }
 .dt-header_container .dt-header__navbar-right {
-  justify-content: space-between !important;
+  justify-content: flex-end !important;
   flex-grow: 1;
 }
+
 .dt-header_container .dt-header__logo, .dt-header_container .dt-header__menu-icon{
   display: none !important;
 }

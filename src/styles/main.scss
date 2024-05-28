@@ -8,3 +8,20 @@
 
 // base
 @import "base/typography";
+
+* {
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #d1e8ff;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #465972;
+  }
+
+}

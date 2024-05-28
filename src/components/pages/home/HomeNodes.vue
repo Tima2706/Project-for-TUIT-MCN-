@@ -75,6 +75,6 @@ const openFormDialog = (item: any) => {
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
   padding: 16px;
-  height: calc(100vh - 32px);
+  height: calc(100vh - 100px);
 }
 </style>
