@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
     ACard: typeof import('ant-design-vue/es')['Card']
-    ACheckbox: typeof import('ant-design-vue/es')['Checkbox']
     ACol: typeof import('ant-design-vue/es')['Col']
     AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
     ADatePicker: typeof import('ant-design-vue/es')['DatePicker']
@@ -30,8 +29,6 @@ declare module '@vue/runtime-core' {
     AppNavigation: typeof import('./components/layout/AppNavigation.vue')['default']
     AppToolbar: typeof import('./components/layout/AppToolbar.vue')['default']
     ARow: typeof import('ant-design-vue/es')['Row']
-    ASelect: typeof import('ant-design-vue/es')['Select']
-    ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     AUpload: typeof import('ant-design-vue/es')['Upload']
