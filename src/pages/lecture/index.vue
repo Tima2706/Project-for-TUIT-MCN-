@@ -114,7 +114,6 @@ const downloadDocument = () => {
     const links = projects.value.map((item) => {
       if (item.files && item.files.length > 0)
         return `${API_FILE_URL}/${item.files[0].path}`
-
       return null
     }).filter(link => link !== null)
 
