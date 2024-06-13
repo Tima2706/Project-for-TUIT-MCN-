@@ -30,6 +30,7 @@ declare module '@vue/runtime-core' {
     AppNavigation: typeof import('./components/layout/AppNavigation.vue')['default']
     AppToolbar: typeof import('./components/layout/AppToolbar.vue')['default']
     ARow: typeof import('ant-design-vue/es')['Row']
+    ASpin: typeof import('ant-design-vue/es')['Spin']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     AUpload: typeof import('ant-design-vue/es')['Upload']

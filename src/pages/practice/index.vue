@@ -196,13 +196,6 @@ const openFormDialog = (item: any) => {
               <HashtagIcon style="fill: none;" />
               {{ $t('download') }}
             </AButton>
-            <a-button
-              class="action-btn" @click="router.push(`/practice/${record.id}`)"
-            >
-              <template #icon>
-                <Eyes />
-              </template>
-            </a-button>
             <a-popconfirm
               v-if="organizationStore?.organization?.username === 'admin'"
               :title="$t('confirmDelete')"
@@ -216,6 +209,15 @@ const openFormDialog = (item: any) => {
                 </template>
               </a-button>
             </a-popconfirm>
+            <a-button
+              v-if="record?.files?.some(file => file.path.endsWith('.pdf'))"
+              class="action-btn"
+              @click="router.push(`/practice/${record.id}`)"
+            >
+              <template #icon>
+                <Eyes />
+              </template>
+            </a-button>
           </div>
         </div>
       </template>

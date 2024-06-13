@@ -3,20 +3,15 @@ import type { RouteLocationRaw } from 'vue-router'
 
 import { useI18n } from 'vue-i18n'
 import AngleLeftIcon from '~/assets/icons/angle-left.svg'
-import Balance from '~/assets/icons/sidebar/play1.svg'
-
-
-
+import Balance from '~/assets/icons/play-button-4204.svg'
 
 import Home from '~/assets/icons/sidebar/home.svg'
 import Message from '~/assets/icons/message-edit.svg'
 import Contract from '~/assets/icons/contract-file.svg'
 
-import { useAccess } from '~/composables/useAccess'
 const { t } = useI18n({ useScope: 'local' })
 
 const collapsed = ref(false)
-
 
 const navigations: {
   title: string
@@ -42,22 +37,19 @@ const navigations: {
     access: true,
     to: { name: 'practice' },
   },
-  // {
-  //   title: t('videoСourses'),
-  //   icon: Balance,
-  //   access: true,
-  //   to: { name: 'videocourses' },
-  // },
-
-
-
+  {
+    title: t('videoСourses'),
+    icon: Balance,
+    access: true,
+    to: { name: 'videocourses' },
+  },
 
 ]
 </script>
 
 <template>
-      <AppToolbar />
-    <div>
+  <AppToolbar />
+  <div>
     <button
       class="sidebar__collapse-btn"
       :class="[{ 'sidebar__collapse-btn-collapsed': collapsed }]"
@@ -70,11 +62,11 @@ const navigations: {
         <div class="logo-tuit flex justify-center mt-5">
           <VText style="color: #FFFFFF; font-weight: 600; font-size: 25px; font-style: italic">
             <a href="https://tuit.uz/">
-              <img src="https://static.tuit.uz/assets/c4c88c23/img/src/newlogotype.png" alt="#" />
+              <img src="https://static.tuit.uz/assets/c4c88c23/img/src/newlogotype.png" alt="#">
             </a>
           </VText>
         </div>
-        <div  class="sidebar">
+        <div class="sidebar">
           <div class="sidebar__header ">
             <p class="sidebar__title">
               {{ $t("MCN") }}
@@ -87,7 +79,7 @@ const navigations: {
         <RouterView />
       </a-layout-content>
     </a-layout>
-    </div>
+  </div>
 </template>
 
 <style lang="scss">

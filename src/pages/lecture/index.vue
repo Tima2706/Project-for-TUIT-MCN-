@@ -5,7 +5,6 @@ import { isAxiosError } from 'axios'
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TrashIcon from '~/assets/icons/trash-line.svg'
-import Eyes from '~/assets/icons/eye-line.svg'
 import SearchIcon from '~/assets/icons/search-line.svg'
 import HashtagIcon from '~/assets/icons/hashtag.svg'
 import { API_FILE_URL } from '~/utils/config'
@@ -15,6 +14,7 @@ import {
   getProjectList,
 } from '~/services/projects'
 import PlusIcon from '~/assets/icons/plus-fill.svg'
+import Eyes from '~/assets/icons/eye-line.svg'
 const router = useRouter()
 const route = useRoute()
 const loading = ref(false)
@@ -136,10 +136,6 @@ const downloadDocument = () => {
     console.error('No projects available for download')
   }
 }
-
-const openFormDialog = (item: any) => {
-  ProjectFormDialogRef.value?.open(item)
-}
 </script>
 
 <template>
@@ -207,13 +203,6 @@ const openFormDialog = (item: any) => {
               <HashtagIcon style="fill: none;" />
               {{ $t('download') }}
             </AButton>
-            <a-button
-              class="action-btn" @click="router.push(`/lecture/${record.id}`)"
-            >
-              <template #icon>
-                <Eyes />
-              </template>
-            </a-button>
             <a-popconfirm
               v-if="organizationStore?.organization?.username === 'admin'"
               :title="$t('confirmDelete')"
@@ -227,6 +216,14 @@ const openFormDialog = (item: any) => {
                 </template>
               </a-button>
             </a-popconfirm>
+            <a-button
+              v-if="record?.files?.some(file => file.path.endsWith('.pdf'))" class="action-btn"
+              @click="router.push(`/lecture/${record.id}`)"
+            >
+              <template #icon>
+                <Eyes />
+              </template>
+            </a-button>
           </div>
         </div>
       </template>

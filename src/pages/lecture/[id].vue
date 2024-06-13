@@ -32,7 +32,6 @@ loadData().then()
 <template>
   <div>
     <iframe
-
       style="width: 100%; height: 100vh"
       :src="`${API_FILE_URL}/${lecture?.files[0]?.path}#toolbar=0`"
     />

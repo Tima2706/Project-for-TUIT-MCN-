@@ -8,7 +8,7 @@ import {
   createProject,
 } from '~/services/projects'
 
-const props = defineProps<{ attributeId: string }>()
+const props = defineProps<{ attributeId?: string }>()
 const emits = defineEmits<ProductsEmitsType>()
 
 const status = ref('done')

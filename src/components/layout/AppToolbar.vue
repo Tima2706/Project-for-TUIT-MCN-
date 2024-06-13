@@ -8,15 +8,13 @@ import { useToken } from '~/composables/useToken'
 import { useStorageService } from '~/modules/storage-service'
 import '@shohrux_saidov/dt-header/dist/style.css'
 import Cookies from 'universal-cookie'
-import {getUserInfo} from "~/services/userInformation";
-import {getNoteList} from "~/services/interfaces/note";
-const open = ref<boolean>(false);
+import { getUserInfo } from '~/services/userInformation'
+const open = ref<boolean>(false)
 const loading = ref(false)
 
-
 const showDrawer = () => {
-  open.value = true;
-};
+  open.value = true
+}
 
 interface Language {
   value: string
@@ -25,15 +23,17 @@ interface Language {
 const cookies = new Cookies(null, { path: '/' })
 
 const loadData = async () => {
-    try {
-        const {
-            data: {data},
-        } = await getUserInfo()
-       return {data}
-    } catch (err) {
-        console.error(err)
-    } finally {
-    }
+  try {
+    const {
+      data: { data },
+    } = await getUserInfo()
+    return { data }
+  }
+  catch (err) {
+    console.error(err)
+  }
+  finally {
+  }
 }
 const { locale } = useI18n({ useScope: 'local' })
 const { $set, $get } = useStorageService()
@@ -41,7 +41,7 @@ const { $set, $get } = useStorageService()
 const organizationStore = useOrganizationStore()
 
 const router = useRouter()
-const {logout, removeToken} = useToken()
+const { logout, removeToken } = useToken()
 const isOpenSubMenu = ref(false)
 const menu1Ref = ref()
 const menu2Ref = ref()
@@ -145,53 +145,56 @@ window.addEventListener('resize', updateIsOpenSubMenu)
           <AngleDownIcon />
         </p>
       </div>
-      <div >
-      <a-drawer
-        v-model:open="open"
-        class="custom-class"
-        root-class-name="root-class-name"
-        :root-style="{ color: 'blue' }"
-        style="color: #000000; background: rgb(255,255,255)"
-        :title="$t('profile')"
-        placement="right"
-      >
-          <div class="mb-3">
-          <VText style="color: darkgray">
-            {{$t('username')}}
-          </VText>
-            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.username}}
-            </VText>
-          </div>
-          <div class="mb-3">
-            <VText style="color: darkgray">
-              {{$t('firstname')}}
-            </VText>
-            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.firstname}}
-            </VText>
-          </div>
-          <div class="mb-3" >
-            <VText style="color: darkgray">
-              {{$t('lastname')}}
-            </VText>
-            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
-              {{organizationStore?.organization?.lastname}}
-            </VText>
-          </div>
-        <a-divider/>
-        <div
-          class="w-full flex gap-2 items-center border-[1px] border-[#DFE2E9] py-2 px-3 rounded-md text-[#D65E81]"
-          @click="handleLogout"
+      <div>
+        <a-drawer
+          v-model:open="open"
+          class="custom-class"
+          root-class-name="root-class-name"
+          :root-style="{ color: 'blue' }"
+          style="color: #000000; background: rgb(255,255,255)"
+          :title="$t('profile')"
+          placement="right"
         >
-          <Logout/>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
-            <path stroke="#D65E81" stroke-linecap="round" stroke-linejoin="round"
-                  d="M5.6 13.475H1.925c-.371 0-.727-.152-.99-.421a1.46 1.46 0 0 1-.41-1.018V1.964c0-.382.148-.748.41-1.017.263-.27.619-.422.99-.422H5.6M9.976 10.5l3.5-3.5-3.5-3.5M13.475 7h-8.4"></path>
-          </svg>
-          <p class="cursor-pointer">{{ $t('exitTheOffice') }}</p>
-        </div>
-      </a-drawer>
+          <div class="mb-3">
+            <VText style="color: darkgray">
+              {{ $t('username') }}
+            </VText>
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{ organizationStore?.organization?.username }}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText style="color: darkgray">
+              {{ $t('firstname') }}
+            </VText>
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{ organizationStore?.organization?.firstname }}
+            </VText>
+          </div>
+          <div class="mb-3">
+            <VText style="color: darkgray">
+              {{ $t('lastname') }}
+            </VText>
+            <VText style="font-size: 16px; font-weight: 600; color: #4A5C71">
+              {{ organizationStore?.organization?.lastname }}
+            </VText>
+          </div>
+          <a-divider />
+          <div
+            class="w-full flex gap-2 items-center border-[1px] border-[#DFE2E9] py-2 px-3 rounded-md text-[#D65E81]"
+            @click="handleLogout"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+              <path
+                stroke="#D65E81" stroke-linecap="round" stroke-linejoin="round"
+                d="M5.6 13.475H1.925c-.371 0-.727-.152-.99-.421a1.46 1.46 0 0 1-.41-1.018V1.964c0-.382.148-.748.41-1.017.263-.27.619-.422.99-.422H5.6M9.976 10.5l3.5-3.5-3.5-3.5M13.475 7h-8.4"
+              />
+            </svg>
+            <p class="cursor-pointer">
+              {{ $t('exitTheOffice') }}
+            </p>
+          </div>
+        </a-drawer>
       </div>
     </div>
   </DTHeader>
